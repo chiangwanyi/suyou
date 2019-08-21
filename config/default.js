@@ -22,7 +22,4 @@ module.exports = {
 
     // 本地数据库测试
     mongodb: 'mongodb://localhost:27017/suyou',
-
-    // 远程服务器数据库测试
-    // mongodb: 'mongodb://suyou:cqwu2019@47.103.3.17:27017/suyou'
 }
