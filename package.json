@@ -1,0 +1,29 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Our first project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cqwu",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "axios": "^0.19.0",
+    "baidu-aip-sdk": "^2.3.9",
+    "blueimp-md5": "^2.10.0",
+    "body-parser": "^1.18.3",
+    "config-lite": "^2.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.3",
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.20",
+    "multiparty": "^4.2.1",
+    "nodejieba": "^2.3.1",
+    "silly-datetime": "^0.1.2"
+  }
+}

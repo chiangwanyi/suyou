@@ -1,0 +1,20 @@
+.post-top {
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.content {
+    margin: 0.5em;
+    text-align: center;
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+.exit {
+    width: 2em;
+    height: 2em;
+}
+
+.post {
+    color: #fdb82d;
+    /* font-size: 1.1em; */
+}

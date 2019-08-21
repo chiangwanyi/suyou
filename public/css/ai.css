@@ -1,0 +1,67 @@
+.talk li {
+    width: 96%;
+    margin: 0 auto;
+    display: block;
+    clear: both;
+}
+
+.talk li img.imgleft {
+    float: left;
+}
+
+.talk li span.spanleft {
+    float: left;
+    background: #fff;
+}
+
+body {
+    background-color: rgba(250, 234, 189, 0.945);
+    font-size: 1em;
+    width: 100%;
+}
+
+.weui-row {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.weui-row img {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 50%;
+}
+
+.weui-row p {
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #ffffff;
+    margin: 15px 10px 0 10px;
+    display: inline-block;
+    transition: all 0.5s;
+    max-width: 70%;
+}
+
+#select {
+    margin: 2%;
+}
+
+#select div {
+    margin: 2px 3px 2px 3px;
+    text-align: center;
+}
+
+.weui-btn {
+    background-color: rgb(247, 159, 76);
+    color: #ffffff;
+}
+
+#input {
+    display: none;
+    border-radius: 15px;
+    background-color: #ffffff;
+    margin: 2%;
+    transition: all 0.5s;
+}

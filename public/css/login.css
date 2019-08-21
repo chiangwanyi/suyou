@@ -1,0 +1,80 @@
+.bg {
+    background-image: url("/public/images/login/bg-img.jpg");
+    background-size: 100% 100%;
+}
+
+.main-color {
+    background-color: rgba(17, 0, 35, 0.31);
+    height: 100%;
+}
+
+.login-title {
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+#toHome {
+    text-align: right;
+}
+
+#toHome img {
+    width: 20%;
+    height: 20%;
+}
+
+#logo {
+    text-align: center;
+}
+
+.login-panel {
+    text-align: center;
+}
+
+.input-bg:before {
+    border-top: none;
+}
+
+.input-bg {
+    width: 80%;
+    border: none;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    background-color: rgba(155, 155, 155, 0.71);
+    /*padding: 10px;*/
+}
+
+.input-bg:after {
+    border-bottom: none;
+}
+
+.tel-icon, .pwd-icon {
+    width: 35%;
+    height: 35%;
+}
+
+input::-webkit-input-placeholder {
+    color: #cacaca;
+    font-size: 15px;
+}
+
+#register {
+    padding-left: 15%;
+}
+
+#forgotPwd {
+    padding-right: 15%;
+    text-align: right;
+}
+
+#register a, #forgotPwd a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+#loginBtn {
+    width: 85%;
+    border-radius: 30px;
+    background-color: rgba(160, 69, 98, 1.00);
+}

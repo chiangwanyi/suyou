@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/me/addshop" method="POST">
+        <label for="name">店铺名</label>
+        <input type="text" name="name" id="name" required><br>
+        <label for="hot">店铺推荐指数</label>
+        <select name="hot" id="hot" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="5">5</option>
+        </select><br>
+        <label for="img">店铺图片</label>
+        <input type="text" name="img" value="/public/images/recommend/" required><br>
+        <label for="ave_price">平均消费</label>
+        <input type="text" name="ave_price" id="ave_price" required><br>
+        <label for="type">店铺种类</label>
+        <input type="radio" name="type" value="中餐" checked>中餐
+        <input type="radio" name="type" value="西餐">西餐<br>
+        <input type="submit"><input type="reset">
+    </form>
+</body>
+</html>

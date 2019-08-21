@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/cms/animate.css">
+    <link rel="stylesheet" href="/public/css/cms/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/cms/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/public/css/cms/style.css">
+    <link rel="stylesheet" href="/public/css/cms/theme.css">
+    <title>首页</title>
+</head>
+
+<body class="flat-blue">
+    <div class="sidebar">
+        <div class="menu-control toggle-sidebar">
+            <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 功能列表</a>
+            <i class="fa fa-bars navicon"></i>
+        </div>
+        <ul class="menu">
+            <li class="submenu">
+                <a href="/">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">数据概览</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="javascript:" class="active">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">商家信息管理</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="table.html">
+                    <div>
+                        <i class="menu-icon fa fa-table"></i>
+                        <span class="menu-title">用户信息管理</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container wrap">
+        <nav class="navbar navbar-default">
+            <div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 酥游后台管理系统-管理员版</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa fa-comments"></i> 0</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    消息 ( <span>0</span> )
+                                </li>
+                                <li class="message">
+                                    <p>没有新消息</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown notification-alert">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa-exclamation-circle"></i> 3</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    待处理 ( <span>3</span> )
+                                </li>
+                                <li>
+                                    <ul class="notification-list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-alert">
+                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺负责人反馈</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-success">
+                                                    <i class="fa fa-check fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺注册信息</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-primary">
+                                                    <i class="fa fa-comments fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 系统通知</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                            <ul class="dropdown-menu user-info">
+                                <li class="dropdown-title-bar">
+                                    <img src="images/profile.jpg" class="profile-img">
+                                </li>
+                                <li>
+                                    <div class="navbar-login">
+                                        <h4 class="user-name">Emily Hart</h4>
+                                        <p>emily_hart@email.com</p>
+                                        <div class="btn-group margin-bottom-2x" role="group">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i>
+                                                详细
+                                            </button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i>
+                                                登出
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="page-title red">
+                        <h2>餐厅信息管理</h2>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">酥游</a>
+                        </li>
+                        <li class="active">餐厅信息管理</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="content-block">
+                        <div class="block-title"><span>已注册餐厅&nbsp;</span></div>
+                        <div class="block-content">
+                            <div id="example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12" style="padding: 3px 0 10px 5px">
+                                                <a href="/cms/manage/restaurant/add" class="btn btn-info">添加新的餐厅</a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <table id="example" class="table table-hover table-bordered" cellspacing="0"
+                                                width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>序号</th>
+                                                        <th>餐厅名称</th>
+                                                        <th>人均消费</th>
+                                                        <th>餐厅标签</th>
+                                                        <th>基本口味</th>
+                                                        <th>营业时间</th>
+                                                        <th>最佳用餐人数</th>
+                                                        <th>菜单数量</th>
+                                                        <th>优惠券数量</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/public/js/jquery.dataTables.min.js"></script>
+    <script src="/public/js/dataTables.bootstrap.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script>
+        var table = null
+
+        function add_goods(id, name) {
+            window.location.href = '/cms/manage/restaurant/add_goods?id=' + id + '?name=' + name
+        }
+
+        $(function () {
+            table = $('#example').DataTable({
+                language: {
+                    "sProcessing": "处理中...",
+                    "sLengthMenu": "显示 _MENU_ 项结果",
+                    "sZeroRecords": "没有匹配结果",
+                    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "sInfoPostFix": "",
+                    "sSearch": "搜索:",
+                    "sUrl": "",
+                    "sEmptyTable": "表中数据为空",
+                    "sLoadingRecords": "载入中...",
+                    "sInfoThousands": ",",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "上页",
+                        "sNext": "下页",
+                        "sLast": "末页"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": 以升序排列此列",
+                        "sSortDescending": ": 以降序排列此列"
+                    }
+                },
+                ajax: {
+                    url: '/cms/manage/restaurant/get_data',
+                    type: 'post',
+                    data: {
+                        key: 'zll&jwy'
+                    },
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: null },
+                    { data: 'name' },
+                    { data: 'ave_price' },
+                    { data: 'tag' },
+                    { data: 'basic_taste' },
+                    { data: 'business_time' },
+                    { data: 'onop' },
+                    { data: 'menu_list_length' },
+                    { data: 'voucher_list_length' },
+                    { data: null }
+                ],
+                columnDefs: [
+                    {
+                        searchable: false,
+                        orderable: false,
+                        targets: 0
+                    },
+                    {
+                        render: function (data, type, row, meta) {
+                            var html = `
+                            <a class="btn btn-sm btn-primary" href="javascript:" onclick="add_goods('`+ data.id + `','` + data.name + `')">添加商品</a>
+                            <a class="btn btn-sm btn-success" href="javascript:" onclick="update('`+ data.name + `')">修改</a>
+                            `
+                            return html;
+                        },
+                        searchable: false,
+                        orderable: false,
+                        targets: 9
+                    },
+                ],
+                order: [[1, 'asc']]
+            });
+            table.on('order.dt search.dt', function () {
+                table.column(0, {
+                    search: 'applied',
+                    order: 'applied'
+                }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+        })
+    </script>
+</body>
+
+</html>

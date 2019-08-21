@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>小酥</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/ai.css">
+</head>
+
+<body ontouchstart onload="getQuestions(),loadJScript()">
+    <ul class="talk" id="talk"></ul>
+    <div class="weui-cell" id="input">
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="need" type="text" placeholder="">
+        </div>
+    </div>
+    <div class="weui-flex" id="select"></div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script type="text/javascript">
+        const user_ava = "{{user.avatar}}";
+        var map = null;
+        var loc = null;
+        function loadJScript() {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://api.map.baidu.com/api?v=2.0&ak=yfgDvuXwSFM55RQD6WOmhKaBwfGb3Nnv&s=1&callback=init";
+            document.body.appendChild(script);
+        }
+        function init() {
+            map = new BMap.Map("allmap");
+            loc = new BMap.Point(118.384466,31.288141);
+        }
+    </script>
+    <script src="/public/js/ai.js"></script>
+</body>
+
+</html>

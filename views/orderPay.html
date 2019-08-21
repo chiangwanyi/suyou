@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/orderPay.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>餐厅信息</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content home">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-form-preview">
+        <div class="weui-flex">
+            <div class="weui-col-10">
+                <img src="../public/images/recommend/store10.jpg">
+            </div>
+            <div class="weui-col-90">
+                <p id="name">{{name}}</p>
+                <small>
+                    <!-- 周一至周日&nbsp;&nbsp;|&nbsp;&nbsp; -->部分可用&nbsp;&nbsp;|&nbsp;&nbsp;免预约&nbsp;&nbsp;|&nbsp;&nbsp;可叠加</small>
+                <div class="orderback"><img src="../public/images/orderPay/gougou.png"><span>随时退</span>&nbsp;&nbsp;<img
+                        src="../public/images/orderPay/gougou.png"><span>过期自动退</span>&nbsp;&nbsp;<img
+                        src="../public/images/orderPay/gougou.png"><span>到店吃</span></div>
+            </div>
+        </div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>数量</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-count">
+                        <a class="weui-count__btn weui-count__decrease"></a>
+                        <input class="weui-count__number" type="number" value="1">
+                        <a class="weui-count__btn weui-count__increase"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>小计</p>
+                </div>
+                <div class="weui-cell__ft mon">￥<span class="price">{{price}}</span></div>
+            </div>
+        </div>
+
+        <div class="weui-cells">
+            <!-- <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>抵用卷</p>
+                </div>
+                <div class="weui-cell__ft">1张可用&nbsp;&nbsp;></div>
+            </div> -->
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>使用积分<i class="weui-icon-info-circle weui-icon-warn"></i></p>
+                </div>
+                <div class="weui-cell__ft">没有积分可以抵用&nbsp;&nbsp;></div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>实付金额</p>
+                </div>
+                <div class="weui-cell__ft mon">￥<span class="price">{{price}}</span></div>
+            </div>
+        </div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>手机号</p>
+                </div>
+                <div class="weui-cell__ft">1876****331</div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-footer  weui-footer_fixed-bottom">
+        <a href="javascript:void(0);" id="t">
+            <p>￥<span class="ti" id="ji"><span class="price">{{price}}</span></span>元&nbsp;&nbsp; 提交订单</p>
+        </a>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+    <script>
+        var MAX = 99, MIN = 1;
+        $('.weui-count__decrease').click(function (e) {
+            var $input = $(e.currentTarget).parent().find('.weui-count__number');
+            var number = parseInt($input.val() || "0") - 1
+            if (number < MIN) number = MIN;
+            $input.val(number)
+        })
+        $('.weui-count__increase').click(function (e) {
+            var $input = $(e.currentTarget).parent().find('.weui-count__number');
+            var number = parseInt($input.val() || "0") + 1
+            if (number > MAX) number = MAX;
+            $input.val(number)
+        })
+    </script>
+    <script>
+        var danj = document.getElementsByClassName("price")[0].innerText;
+        function getvl(name) {
+            var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)", "i");
+            if (reg.test(window.location.href))
+                return unescape(RegExp.$2.replace(/\+/g, " "));
+            return "";
+        };
+        $('.weui-count__btn').click(function () {
+            var num = $(" input[ type='number' ] ").val();
+            var nump = danj * num;
+            $('.mon span').text(nump);
+            $('.ti span').text(nump);
+            var list = document.getElementsByClassName("price")
+            for (let i in list) {
+                list[i].innerHTML = parseFloat(list[i].innerHTML).toFixed(1)
+            }
+        });
+        $('#t').click(function () {
+            $.ajax({
+                url: '/shopping/orderPay',
+                type: 'post',
+                data: {
+                    total: $('#ji>span')[0].innerText,
+                    date: new Date(),
+                    gid: getvl("gid"),
+                    vid: getvl("vid"),
+                    rid: getvl("rid"),
+                    num: $("input.weui-count__number").val()
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data)
+                    window.location.href = '/shopping/confirmPay'
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

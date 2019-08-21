@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/suyor.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="header">
+            <span style="float: left;">小酥</span>
+            <span style="float: right;">0:00</span>
+        </div>
+        <ul class="content">
+        </ul>
+        <div class="footer">
+            <div id="user_face_icon">
+                <img src="/public/images/avatar/5cd4f5523417970227a97633_20190515125208.png" alt="">
+            </div>
+            <input id="text" type="text" placeholder="说点什么吧...">
+            <span id="btn">发送</span>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script>
+        window.onload = function () {
+            var arrIcon = ['/public/images/avatar/5cd4f5523417970227a97633_20190515125208.png', '/public/images/logo/AI.svg'];
+            var num = 0;     //控制头像改变 0：用户 1：小酥
+            var iNow = -1;    //用来累加改变左右浮动
+            var icon = document.getElementById('user_face_icon').getElementsByTagName('img');
+            var btn = document.getElementById('btn');
+            var text = document.getElementById('text');
+            var content = document.getElementsByTagName('ul')[0];
+            var img = content.getElementsByTagName('img');
+            var span = content.getElementsByTagName('span');
+
+            function switch_user() {
+                if (num == 0) {
+                    this.src = arrIcon[1];
+                    num = 1;
+                } else if (num == 1) {
+                    this.src = arrIcon[0];
+                    num = 0;
+                }
+            }
+
+            function push_msg(msg) {
+                content.innerHTML += '<li><img src="' + arrIcon[num] + '"><span>' + msg + '</span></li>';
+                console.log(num)
+                iNow++;
+                if (num == 0) {
+                    img[iNow].className += 'imgright';
+                    span[iNow].className += 'spanright';
+                } else {
+                    img[iNow].className += 'imgleft';
+                    span[iNow].className += 'spanleft';
+                }
+                content.scrollTop = content.scrollHeight;
+            }
+
+            btn.onclick = function () {
+                if (text.value == '') {
+                    alert('不能发送空消息');
+                } else {
+                    var msg = {
+                        text: text.value
+                    };
+                    text.value = '';
+                    push_msg(msg.text);
+                    $.ajax({
+                        url: '/suyor',
+                        type: 'post',
+                        data: msg,
+                        dataType: 'json',
+                        success: function (data) {
+                            var err_code = data.err_code;
+                            if (err_code === 0) {
+                                console.log(data)
+                                switch_user()
+                                push_msg(data.text)
+                                switch_user()
+                            }
+                        }
+                    })
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+body {
+    background-color: #f6f6f6;
+    font: 12px/1.3 'Arial', 'Microsoft YaHei';
+}
+
+.post {
+    position: fixed;
+    right: 3%;
+    bottom: 20%;
+    z-index: 8;
+    /*opacity: 0.6;*/
+}
+
+.post img {
+    width: 5em;
+}
+
+.container {
+    width: 100%;
+    margin: 0 0.5em 0.5em 0.5em;
+    padding: 1em;
+    border-radius: 0.8em;
+    background-color: #FFFFFF;
+}
+
+.user {
+    height: 4em;
+    line-height: 4em;
+}
+
+.user img {
+    width: 4em;
+    height: 100%;
+    border-radius: 50%;
+    float: left;
+}
+
+.user p {
+    height: 100%;
+    margin-left: 0.5em;
+    float: left;
+    font-size: 1.4em;
+    color: #000000;
+}
+
+.userNote {
+    margin: 1em 0 0.5em 0;
+    font-size: 1.3em;
+    color: #000000;
+}
+
+.uesrImage img {
+    max-width: 60%;
+    border-radius: 1em;
+}
+
+.tag-list {
+    margin: 1em 0 1em 0;
+}
+
+.tag-list a {
+    background-color: rgba(4, 190, 2, 0.34);
+    margin-right: 0.5em;
+    color: #000000;
+    display: inline-block;
+}
+
+.icon-list {
+    height: 2em;
+}
+
+.icon-list a {
+    height: 100%;
+    vertical-align: middle;
+}
+
+.icon-list a span {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block
+}
+
+.icon-list a img {
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+}
+
+.icon-list a .title, .icon-list a .number {
+    display: inline-block;
+    /*height: 2em;*/
+    line-height: 2em;
+    font-size: 1.3em;
+    color: #000000;
+    vertical-align: middle;
+}
+
+.platform {
+    margin: 0 auto;
+    line-height: 3.3em;
+    font-size: 0.8em;
+}
+
+/*评论页面的css*/
+
+.comment-top {
+    font-size: 16px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.contents {
+    width: 80%;
+    font-size: 1em;
+    margin: 0.5em;
+    text-align: center;
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+.back {
+    text-align: left
+}
+
+.back a img {
+    width: 2em;
+    height: 2em;
+}
+
+.more {
+    text-align: right
+}
+
+.more a img {
+    width: 2em;
+    height: 2em;
+}
+
+.recommend {
+    width: 100%;
+    margin: 0.6em 0.5em 1em 0.5em;
+    padding: 1em;
+    background-color: #FFFFFF;
+}
+
+.recommendNum {
+    width: 100%;
+    margin: 0.4em 0.5em -0.5em 0.5em;
+    padding: 0.5em;
+    background-color: #FFFFFF;
+}
+
+.reTitle {
+    border-bottom: 1px solid gainsboro;
+}
+
+.reImg {
+    float: left;
+    width: 40%;
+}
+
+.reImg img {
+    width: 80%;
+    height: 30%;
+    margin-top: 1em;
+    border-radius: 2px;
+}
+
+.reWords {
+    margin-top: 1em;
+    width: 50%;
+    float: left;
+    margin-left: -1em;
+}
+
+.commentContent {
+    width: 100%;
+    margin: 0 0.5em 0 0.5em;
+    padding: 1em;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid rgba(197, 197, 197, 0.72);
+}
+
+.headImg {
+    line-height: 3.5em;
+    float: left;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.headImg img {
+    width: 2.5em;
+    height: 2.5em;
+    float: left;
+    border-radius: 50%;
+}
+
+.userName {
+    float: left;
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+
+.userName p {
+    color: #9e9e9e;
+}
+
+.userName small {
+    display: block;
+    color: #858585;
+}
+
+.headImg span {
+    height: 100%;
+    margin-left: 0.9em;
+    float: left;
+    font-size: 1.1em;
+    margin-top: -0.9em;
+    color: #858585;
+}
+
+.commentMain {
+    margin-left: 12%;
+    margin-top: -0.9em;
+}
+
+.commentTime {
+    color: grey;
+}
+
+.commentWord {
+    margin-left: 3.4em;
+    margin-top: 3.4em;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.reWords p {
+    color: #999999;
+    font-size: 0.9em;
+    margin-top: 1em;
+}
+
+.commentCTopic {
+    margin-left: 10%;
+    margin-top: 1em;
+    text-align: left;
+    font-size: 1.1em;
+    background-color: rgba(220, 220, 220, 0.64);
+}
+
+.commentCTopic img {
+    width: 3.5em;
+    height: 3.5em;
+    margin-bottom: -0.2em;
+}
+
+.commentCTopic span {
+    margin: 0px auto;
+    position: relative;
+    top: -1em;
+    color: grey;
+}
+
+.bottom{
+    position: fixed;
+    bottom: -0.6em;
+    width: 100%;
+    height: 3.5em;
+    border-top: 1px solid #cccccc;
+    background-color: #FFFFFF;
+}
+
+.inputComment{
+    background: white;
+    /* height: 100%; */
+    margin:0.7em 0 0.2em 2em ;
+    border-radius: 3%;
+}
+.submitComment{
+    background-color: #0072E9;
+    margin: 0.2em 0.7em 0.2em 0.5em;
+}
+
+.content_input {
+    float: left;
+    height: 100%;
+}
+
+.submit {
+    float: right;
+}
+
+/**/
+
+#tab2 {
+    background-color: #f6f6f6;
+}
+
+.topic {
+    margin: 1% 3% 3% 3%;
+}
+
+.readingNum {
+    color: #cdcdcd;
+
+}
+
+.title {
+    display: inline;
+}
+
+.topicDetail {
+    color: black;
+}
+
+.topicBox {
+    background-color: white;
+    border-radius: 0.8em;
+    margin: 0 0.5em 0.5em 0.5em;
+    font-size: 15px;
+}
+
+.topicHeader {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.topicHeader span {
+    background-color: red;
+    line-height: 30px;
+    background: url(//tb2.bdstatic.com/tb/img/group_sprite_f476e1b.png) no-repeat 0 -154px;
+}
+
+.topicPassage {
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+.topicFooter {
+    margin-top: 0.8em;
+}
+
+.topicHot {
+    margin-left: 7em;
+    color: #bfbfbf;
+}
+
+.topicBanner {
+    line-height: 30px;
+}
+
+.topicPerson {
+    width: 3em;
+    background-color: gainsboro;
+    text-align: center;
+    margin-top: 0.8em;
+    border-radius: 40%;
+}
+
+.topicPerson a {
+    text-decoration: none;
+    color: #80512f;
+    border-radius: 35%;
+    font-size: 12px;
+}
+
+.passage {
+    line-height: 1.6em;
+    font-size: 1.2em;
+}
+
+.advertisement img {
+    width: 100%;
+}
+
+.weui-tabbar {
+    position: fixed;
+}

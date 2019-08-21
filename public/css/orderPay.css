@@ -1,0 +1,140 @@
+body, html {
+    height: 100%;
+    background-color: rgba(248, 248, 255, 0.4);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.weui-cells {
+    margin-top: 1.17647059em;
+    background-color: rgba(248, 248, 255, 0.4);
+    line-height: 1.47058824;
+    font-size: 17px;
+    overflow: hidden;
+    position: relative;
+}
+
+.weui-col-10 img {
+    width: 4em;
+    height: 4em;
+    padding: 0.5em;
+}
+
+.weui-col-90 p {
+    /* padding: 0.4em; */
+    padding-left: 0.2em;
+    padding-bottom: 0.4em;
+    margin-bottom: -0.7em;
+    /*background-color: saddlebrown;*/
+}
+
+.weui-col-90 small, .weui-col-80 {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    font-size: 0.8em;
+    color: #979797;
+}
+
+.weui-col-90 img {
+    width: 1.2em;
+}
+
+.weui-col-90 span {
+    font-size: 0.8em;
+    color: #4bb40c;
+}
+
+.orderback * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.weui-flex {
+    border-bottom: 0.5px solid gainsboro;
+}
+
+.number {
+    padding: 0.3em;
+}
+
+.weui-input {
+    width: 1em;
+    border-bottom: none;
+}
+
+.number .weui-col-90 {
+    margin-left: 15em;
+}
+
+.number * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.weui-footer {
+    background-color: #e98f36;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    margin-bottom: -1em;
+}
+
+.weui-footer a {
+    color: white;
+}
+
+/*֧������*/
+
+.money {
+    width: 100%;
+    margin: 50px;
+    text-align: center;
+}
+
+.payMeans {
+    padding: 1.6em;
+}
+
+.left {
+    float: left;
+    margin-right: 1em;
+}
+
+.right * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.right {
+    float: left;
+}
+
+.alipay {
+    margin-left: 9em;
+}
+
+.weixin {
+    margin-left: 11.9em;
+}
+
+.weui-cells {
+    background-color: transparent;
+}
+
+.mon {
+    color: #e98f36;
+}
+
+.selpay {
+    height: 38px;
+}
+
+.selpay span {
+    position: relative;
+    top: -12px;
+    margin-left: 10px;
+}

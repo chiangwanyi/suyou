@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/cms/animate.css">
+    <link rel="stylesheet" href="/public/css/cms/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/cms/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/public/css/cms/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="/public/css/cms/select2.css">
+    <link rel="stylesheet" href="/public/css/cms/style.css">
+    <link rel="stylesheet" href="/public/css/cms/theme.css">
+    <title>首页</title>
+</head>
+
+<body class="flat-blue">
+    <div class="sidebar">
+        <div class="menu-control toggle-sidebar">
+            <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 功能列表</a>
+            <i class="fa fa-bars navicon"></i>
+        </div>
+        <ul class="menu">
+            <li class="submenu">
+                <a href="javascript:" class="active">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">数据概览</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                    <a href="/cms/manage/restaurant">
+                        <div>
+                            <i class="menu-icon fa fa-th-large"></i>
+                            <span class="menu-title">商家信息管理</span>
+                        </div>
+                    </a>
+                </li>
+            <li class="submenu">
+                <a href="table.html">
+                    <div>
+                        <i class="menu-icon fa fa-table"></i>
+                        <span class="menu-title">用户信息管理</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container wrap">
+        <nav class="navbar navbar-default">
+            <div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 酥游后台管理系统-管理员版</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa fa-comments"></i> 0</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    消息 ( <span>0</span> )
+                                </li>
+                                <li class="message">
+                                    <p>没有新消息</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown notification-alert">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa-exclamation-circle"></i> 3</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    待处理 ( <span>3</span> )
+                                </li>
+                                <li>
+                                    <ul class="notification-list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-alert">
+                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺负责人反馈</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-success">
+                                                    <i class="fa fa-check fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺注册信息</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-primary">
+                                                    <i class="fa fa-comments fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 系统通知</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                            <ul class="dropdown-menu user-info">
+                                <li class="dropdown-title-bar">
+                                    <img src="images/profile.jpg" class="profile-img">
+                                </li>
+                                <li>
+                                    <div class="navbar-login">
+                                        <h4 class="user-name">Emily Hart</h4>
+                                        <p>emily_hart@email.com</p>
+                                        <div class="btn-group margin-bottom-2x" role="group">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i>
+                                                详细</button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i>
+                                                登出</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="page-title red">
+                        <h2>数据概览</h2>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <ol class="breadcrumb">
+                        <li><a href="#">酥游</a>
+                        </li>
+                        <li class="active">数据概览</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <a href="#">
+                        <div class="banner-block red">
+                            <div class="block-content">
+                                <span class="banner-icon fa-stack fa-3x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-inbox fa-stack-1x fa-inverse"></i>
+                                </span>
+                                <div class="banner-content">
+                                    <div class="title">50</div>
+                                    <div class="sub-title">注册商家</div>
+                                </div>
+                                <div class="clear-both"></div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <a href="#">
+                        <div class="banner-block yellow">
+                            <div class="block-content">
+                                <span class="fa-stack fa-3x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-id-card-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                                <div class="banner-content">
+                                    <div class="title">23</div>
+                                    <div class="sub-title">注册用户</div>
+                                </div>
+                                <div class="clear-both"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <a href="#">
+                        <div class="banner-block green">
+                            <div class="block-content">
+                                <span class="fa-stack fa-3x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+                                </span>
+                                <div class="banner-content">
+                                    <div class="title">￥654k</div>
+                                    <div class="sub-title">今日成交额</div>
+                                </div>
+                                <div class="clear-both"></div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <a href="#">
+                        <div class="banner-block blue">
+                            <div class="block-content">
+                                <span class="fa-stack fa-3x">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-share-alt fa-stack-1x fa-inverse"></i>
+                                </span>
+                                <div class="banner-content">
+                                    <div class="title">16</div>
+                                    <div class="sub-title">成功订单量</div>
+                                </div>
+                                <div class="clear-both"></div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="banner-block white">
+                        <div class="block-content">
+                            <div class="block-title">用户年龄分布</div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <canvas id="dashboard-user-chart"
+                                        style="padding: 10px 30px 10px 10px; width: 346px; height: 173px;" height="216"
+                                        width="432"></canvas>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="dashboard-user-chart-legend" class="pie-legend">
+                                        <ul class="doughnut-legend">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="banner-block white">
+                        <div class="block-content">
+                            <div class="block-title">本周交易金额统计（单位：单）</div>
+                            <canvas id="dashboard-order-chart"
+                                style="padding: 10px 30px 10px 10px; width: 461px; height: 230px;" height="287"
+                                width="576"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/public/js/Chart.min.js"></script>
+    <script src="/public/js/bootstrap-select.min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/index.js"></script>
+</body>
+
+</html>

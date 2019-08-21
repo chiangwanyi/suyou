@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/order.css">
+</head>
+
+<body ontouchstart>
+    <!--导航返回-->
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="/me"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p><img src="/public/images/order/order.png">我的订单</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="weui-tab">
+        <div class="weui-navbar">
+            <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+                全部
+            </a>
+            <a class="weui-navbar__item" href="#tab2">
+                待付款
+            </a>
+            <a class="weui-navbar__item" href="#tab3">
+                待使用
+            </a>
+        </div>
+        <div class="weui-tab__bd">
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                {{if total_num == 0}}
+                <div class="noshow">
+                    <p>————&nbsp;暂无订单&nbsp;————</p>
+                </div>
+                {{else}}
+                {{each list}}
+                <div class="myorder">
+                    <div class="head">
+                        <div class="weui-row weui-no-gutter" style="border-bottom: 1px solid darkgray">
+                            <div class="weui-col-70">
+                                <img src="{{$value.restaurant.img}}">
+                                <h3 class="text-hidden">{{$value.restaurant.name}}</h3>
+                            </div>
+                            <div class="weui-col-30">
+                                {{if $value.type == 0}}
+                                <p>菜品</p>
+                                {{else}}
+                                <p>优惠券</p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="storeName">
+                        <div class="weui-row weui-no-gutter" style="padding: 10px 10px">
+                            <div class="weui-col-30" style="width: 70px">
+                                {{if $value.type == 0}}
+                                <img src="{{$value.menu.img}}">
+                                {{else}}
+                                <img src="/public/images/order/voucher.jfif">
+                                {{/if}}
+                            </div>
+                            <div class="weui-col-70 u">
+                                <ul>
+                                    <li class="text-hidden">
+                                        商品名称：<small>{{if $value.type == 0}}{{$value.menu.name}}{{else}}{{$value.v_name}}{{/if}}</small>
+                                    </li>
+                                    <li class="text-hidden">
+                                        {{if $value.state == 0}}创建日期{{else}}付款日期{{/if}}：<small>{{$value.date}}</small>
+                                    </li>
+                                    <li class="text-hidden">数量：<small>{{$value.num}}</small></li>
+                                    <li class="text-hidden">总价：<small>￥{{$value.total}}</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{if $value.state == 0}}
+                    <div>
+                        <div class="weui-row">
+                            <div class="weui-col-70"></div>
+                            <div class="weui-col-30">
+                                <a href="/shopping/continuePay?id={{$value._id}}"
+                                    class="weui-btn weui-btn_primary">付款</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+            <div id="tab2" class="weui-tab__bd-item">
+                {{if nosale_num == 0}}
+                <div class="noshow">
+                    <p>————&nbsp;暂无订单&nbsp;————</p>
+                </div>
+                {{else}}
+                {{each list}}
+                {{if $value.state == 0}}
+                <div class="myorder">
+                    <div class="head">
+                        <div class="weui-row weui-no-gutter" style="border-bottom: 1px solid darkgray">
+                            <div class="weui-col-70">
+                                <img src="{{$value.restaurant.img}}">
+                                <h3 class="text-hidden">{{$value.restaurant.name}}</h3>
+                            </div>
+                            <div class="weui-col-30">
+                                {{if $value.type == 0}}
+                                <p>菜品</p>
+                                {{else}}
+                                <p>优惠券</p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="storeName">
+                        <div class="weui-row weui-no-gutter" style="padding: 10px 10px">
+                            <div class="weui-col-30" style="width: 70px">
+                                {{if $value.type == 0}}
+                                <img src="{{$value.menu.img}}">
+                                {{else}}
+                                <img src="/public/images/profile.jpg">
+                                {{/if}}
+                            </div>
+                            <div class="weui-col-70 u">
+                                <ul>
+                                    <li class="text-hidden">
+                                        商品名称：<small>{{if $value.type == 0}}{{$value.menu.name}}{{else}}{{$value.v_name}}{{/if}}</small>
+                                    </li>
+                                    <li class="text-hidden">
+                                        {{if $value.state == 0}}创建日期{{else}}付款日期{{/if}}：<small>{{$value.date}}</small>
+                                    </li>
+                                    <li class="text-hidden">数量：<small>{{$value.num}}</small></li>
+                                    <li class="text-hidden">总价：<small>￥{{$value.total}}</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{if $value.state == 0}}
+                    <div>
+                        <div class="weui-row">
+                            <div class="weui-col-70"></div>
+                            <div class="weui-col-30">
+                                <a href="/shopping/continuePay?id={{$value._id}}"
+                                    class="weui-btn weui-btn_primary">付款</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/if}}
+                {{/each}}
+                {{/if}}
+            </div>
+            <div id="tab3" class="weui-tab__bd-item">
+                {{if sale_num == 0}}
+                <div class="noshow">
+                    <p>————&nbsp;暂无订单&nbsp;————</p>
+                </div>
+                {{else}}
+                {{each list}}
+                {{if $value.state == 1}}
+                <div class="myorder">
+                    <div class="head">
+                        <div class="weui-row weui-no-gutter" style="border-bottom: 1px solid darkgray">
+                            <div class="weui-col-70">
+                                <img src="{{$value.restaurant.img}}">
+                                <h3 class="text-hidden">{{$value.restaurant.name}}</h3>
+                            </div>
+                            <div class="weui-col-30">
+                                {{if $value.type == 0}}
+                                <p>菜品</p>
+                                {{else}}
+                                <p>优惠券</p>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="storeName">
+                        <div class="weui-row weui-no-gutter" style="padding: 10px 10px">
+                            <div class="weui-col-30" style="width: 70px">
+                                {{if $value.type == 0}}
+                                <img src="{{$value.menu.img}}">
+                                {{else}}
+                                <img src="/public/images/profile.jpg">
+                                {{/if}}
+                            </div>
+                            <div class="weui-col-70 u">
+                                <ul>
+                                    <li class="text-hidden">
+                                        商品名称：<small>{{if $value.type == 0}}{{$value.menu.name}}{{else}}{{$value.v_name}}{{/if}}</small>
+                                    </li>
+                                    <li class="text-hidden">
+                                        {{if $value.state == 0}}创建日期{{else}}付款日期{{/if}}：<small>{{$value.date}}</small>
+                                    </li>
+                                    <li class="text-hidden">数量：<small>{{$value.num}}</small></li>
+                                    <li class="text-hidden">总价：<small>￥{{$value.total}}</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {{if $value.state == 0}}
+                    <div>
+                        <div class="weui-row">
+                            <div class="weui-col-70"></div>
+                            <div class="weui-col-30">
+                                <a href="/shopping/continuePay?id={{$value._id}}"
+                                    class="weui-btn weui-btn_primary">付款</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/if}}
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/login.js"></script>
+
+</body>
+
+</html>

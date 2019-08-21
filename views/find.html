@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>社区</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/community.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-tab">
+        <div class="weui-tab__bd">
+            <div class="topTitle">
+                <a href="/community">说吧</a>
+                <a href="/find" class="active">发现</a>
+            </div>
+            <br><br><br><br><br>
+            <!--发现 -->
+            <!-- 话题板块1-->
+            <div class="weui-flex topicBox">
+                <a href="/find/passage" class="topicDetail">
+                    <div class="topic">
+                        <div class="topicHeader">
+                            <h3 class="title"><span>1</span>#海口攻略美食足迹#</h3><small class="topicHot">300万热度</small>
+                        </div>
+                        <div class="topicPassage">
+                            为了喝这锅汤，我从三亚坐了2小时车赶来的！听说喝完补到能续点饭还要点music！凌晨3点这还有人聚众撕肉肉肉&喝酒…...
+                        </div>
+                        <div class="topicImg">
+                            <img src="/public/images/topic/passageImg.jpg" style="width: 90%;height: 160px">
+                        </div>
+                        <div class="topicFooter">
+                            <a>点击查看更多...</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="weui-flex topicBox">
+                <a href="/find/passage" class="topicDetail">
+                    <div class="topic">
+                        <div class="topicHeader">
+                            <h3 class="title"><span>2</span>#关于旅行的感悟#</h3><small class="topicHot">300万热度</small>
+                        </div>
+                        <div class="topicPassage">
+                            有一句话说：读万卷书，行万里路。读书和行路都是为了学习，开阔眼界。当你见多识广了，对世界的感知更加深刻了，则你的内心深处的变化必然提升你的气质。
+                        </div>
+                        <div class="topicImg">
+                            <img src="/public/images/topic/travel.jpg" style="width: 90%;height: 180px">
+                        </div>
+                        <div class="topicFooter">
+                            <a>点击查看更多...</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <br><br><br>
+        </div>
+        <div class="weui-tabbar">
+            <a href="javascript:" class="weui-tabbar__item weui-bar__item--on">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/icon_nav_msg.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">圈子</p>
+            </a>
+            <a href="/" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/icon_nav_button.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">主页</p>
+            </a>
+            <a href="/me" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/icon_nav_cell.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">我</p>
+            </a>
+        </div>
+
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script>
+        $('.like').click(function () {
+            var icon = $(this).find('img');
+            var number = $(this).find('.number');
+            if (icon.attr('src') === '/public/icon/like.png') {
+                icon.attr('src', '/public/icon/like-on.png');
+                number.text(parseInt(number.text()) + 1)
+            } else {
+                icon.attr('src', '/public/icon/like.png');
+                number.text(parseInt(number.text()) - 1)
+            }
+
+            // 使用 ajax 向服务器传送修改后的 喜欢 数据
+            //$.ajax()
+        });
+    </script>
+
+</body>
+
+</html>

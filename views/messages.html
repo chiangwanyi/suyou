@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>我的</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/messages.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>我的消息</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="weui-flex" style="background-color: #ffffff">
+        <div class="weui-flex__item">
+            <div class="title on">
+                <a href="javascript:window.location.reload()">帖子</a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="title">
+                <a href="javascript:$.toast('功能建设中', 1000);">回复</a>
+            </div>
+        </div>
+    </div>
+    {{each notes}}
+    <div class="weui-flex note" onclick="window.location.href = '/community/comment?note_id={{$value.note_id}}'">
+        <div class="datetime">
+            <p class="day">{{$value.creation_date.getDate()}}</p><span
+                class="year">{{$value.creation_date.getFullYear()}}</span><span>.</span><span
+                class="month">{{($value.creation_date.getMonth())+1}}</span>
+        </div>
+        <div class="main">
+            <div class="note-text">
+                <p>{{$value.text}}</p>
+            </div>
+            <div class="note-image">
+                {{if $value.image}}
+                <img src="{{$value.image}}">
+                {{/if}}
+            </div>
+            <div class="note-func">
+                <a href="javascript:" class="">
+                    <img src="/public/icon/contents.png" alt="" />
+                    <p class="number">{{$value.comment_number}}</p>
+                </a>
+                <a href="javascript:" class="">
+                    <img src="/public/icon/like-on.png" alt="" />
+                    <p class="number">{{$value.like_number}}</p>
+                </a>
+                <a href="javascript:" style="float: right;text-align: right;margin-right: 15px;">
+                    <img src="/public/icon/more.png" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+</body>
+
+</html>

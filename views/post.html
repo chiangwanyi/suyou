@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>社区</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/post.css" />
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex post-top">
+        <div class="weui-flex__item">
+            <div class="content" style="text-align: left">
+                <a href="/community"><img class="exit" src="/public/icon/exit.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>发表到圈子</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <a href="javascript:" class="post">发表</a>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_form" style="margin-top: 0">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" id="text" placeholder="输入你想发表的..." rows="4"></textarea>
+                <!-- 上传图片 -->
+                <div class="weui-gallery" id="gallery">
+                    <span class="weui-gallery__img" id="galleryImg"></span>
+                    <div class="weui-gallery__opr">
+                        <a href="javascript:" class="weui-gallery__del">
+                            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="weui-uploader">
+                    <div class="weui-uploader__hd">
+                        <p class="weui-uploader__title">图片上传</p>
+
+                        <div class="weui-uploader__info"><span id="images_num">0</span>/1</div>
+                    </div>
+                    <div class="weui-uploader__bd">
+                        <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                        <div id="uploader-box" class="weui-uploader__input-box">
+                            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"
+                                multiple="">
+                        </div>
+                    </div>
+                </div>
+                <!-- 上传图片结束 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/post.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+body{
+    background-color: #f6f6f6;
+}
+.navigation{
+    width: 100%;
+    height: 15em;
+}
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+}
+.returnRobot *{
+    display: inline-block;
+    vertical-align: middle;
+}
+.returnRobot{
+    text-align: center;
+    background-color: #e98f36;
+    margin: 0.5em;
+}
+.returnRobot img{
+    width: 2em;
+    height: 2em;
+}
+.returnRobot a{
+    text-decoration: none;
+    color: white;
+}
+.resInformation{
+    margin-top: 0.5em; ;
+    width: 100%;
+    color: #555;
+    background-color: white;
+    height: 8em;
+}
+.resInformation a{
+    text-decoration: none;
+    color: #555;
+}
+.information{
+    text-align: center;
+    font-size: 1.2em;
+}
+.position{
+    margin-top: 0.6em;
+}
+.position *{
+    margin-left: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -0.8em;
+    margin-bottom: -0.5em;
+}
+.resInformation img{
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 1em;
+}
+.specialty{
+    margin-left: 0.6em;
+    margin-top: 0.5em;
+}
+.recommendMenu{
+    margin-top: 0.5em;
+    background-color: white;
+}
+.recommendMenu h3{
+    margin-left: 0.5em;
+    /* margin-top: 10px; */
+}
+.recommendMenu h5{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+.recommendMenu img{
+    width: 92%;
+    height: 6em;
+    border-radius: 3px;
+}
+.recommendMenu p{
+    color: #555;
+    margin-left: 17%;
+}
+.ordinaryRecommend{
+    margin-top: 0.5em;
+    background-color: white;
+    height: 4em;
+}
+.ordinaryRecommend img{
+    width: 1.5em;
+    height: 1.5em;
+}
+.ordinaryRecommend h5 *{
+    display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: middle;
+}
+.ordinaryRecommend p{
+    margin-left: 1em;
+    color: #555;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+}
+.weui-media-box__bd{
+    
+    background: transparent;
+
+}
+.weui-media-box__bd h5{
+    margin-left: 0px;
+}
+.weui-media-box__bd .weui-media-box__desc{
+    display: block;
+    overflow: hidden;
+    height: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 70%;
+}
+.weui-media-box__bd h5{
+    margin-left: 0px;
+    margin-top: 3px;
+    padding: 0px;
+    color: red;
+}
+.weui-media-box__bd h5 small{
+    margin-left: 5px;
+    color: #555;
+    text-decoration: line-through;
+}
+.media-des{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    padding: 8px;
+    background: transparent;
+    width: 30%;
+}
+.media-des a{
+    width: 60%;
+    height: 40%;
+    margin-left: 30%;
+}
+.media-des p{
+    color: #999;
+    font-size: 11px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 30px;
+}
+
+.voucher-a{
+    position: relative;
+    display: block;
+    padding: 0px;
+}
+.voucher-v{
+    position: relative;
+}
+.voucher-info{
+    width: 80%;
+}
+.voucher-info p{
+    margin-left: 8px;
+    display: block;
+    overflow: hidden;
+    height: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+.voucher-info h4{
+    margin-left: 8px;
+}
+.voucher{
+    background-color: transparent;
+}
+.voucher-a{
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.voucher-info h4{
+    color: #0A0A0A;
+}
+.voucher-info h5{
+    color: red;
+}
+.voucher-info h5 small{
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #F1EDC2;
+    padding: 2px;
+}
+
+.text-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

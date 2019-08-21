@@ -1,0 +1,41 @@
+.x {
+    padding: 0px;
+    overflow: hidden;
+}
+
+.juan {
+    background-color: blanchedalmond;
+    padding: 20px;
+    border: 2px solid #FFD39B;
+    /* border-left:1px solid #FFD39B; */
+    /* border-right: 1px solid #FFD39B; */
+    /* overflow: hidden; */
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.juan::before {
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: -10px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: 2px solid #FFD39B;
+}
+
+.juan::after {
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    right: -10px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: 2px solid #FFD39B;
+}

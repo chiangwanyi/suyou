@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>导航</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <style>
+        .type {
+            text-align: center;
+        }
+
+        .type a {
+            display: inline-block;
+            height: 40px;
+            color: #000000;
+        }
+
+        .type a p {
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.1em;
+            display: inline-block;
+        }
+
+        .type a.on p {
+            border-bottom: 3px solid #fdb82d;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>导航</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="weui-flex">
+        <div class="weui-flex__item">
+            <div id="allmap" style="width: 100%;height: 450px;"></div>
+        </div>
+    </div>
+    <div class="weui-flex type">
+        <a onclick="byWalking()" class="weui-flex__item on">
+            <p>步行前往</p>
+        </a>
+        <a onclick="byCar()" class="weui-flex__item">
+            <p>驾车前往</p>
+        </a href="javascript:">
+        <a onclick="byBus()" class="weui-flex__item">
+            <p>公交前往</p>
+        </a href="javascript:">
+    </div>
+    <div class="weui-flex" style="margin-top: 5px;">
+        <div class="weui-flex__item">
+            <div id="r-result"></div>
+        </div>
+    </div>
+    <div id="coo" lng="{{loc[0]}}" lat="{{loc[1]}}"></div>
+
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script>
+        var $tool = $('div.type a');
+        $tool.click(function () {
+            $tool.removeClass("on")
+            $(this).addClass("on")
+        })
+    </script>
+    <script type="text/javascript">
+        var map = null;
+        // 目的地位置
+        var point = null
+        // 我的位置
+        var myLocalion = null;
+
+        //百度地图API功能
+        function loadJScript() {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://api.map.baidu.com/api?v=2.0&ak=yfgDvuXwSFM55RQD6WOmhKaBwfGb3Nnv&s=1&callback=init";
+            document.body.appendChild(script);
+        }
+
+        // 获取目的地位置
+        function getPoint() {
+            var loc = $("#coo")
+            point = new BMap.Point(Number(loc.attr("lng")), Number(loc.attr("lat")))
+            console.log(point)
+        }
+
+        // 定位
+        function getLocaltion() {
+            console.log("定位中")
+            $.showLoading("定位中")
+            var geolocation = new BMap.Geolocation();
+            geolocation.getCurrentPosition(function (r) {
+                if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                    myLocalion = new BMap.Point()
+                    console.log(r)
+                    myLocalion = r.point
+                    // var mk = new BMap.Marker(myLocalion.point);
+                    // map.addOverlay(mk);
+                    // map.panTo(myLocalion.point);
+                    getPoint()
+                    $.hideLoading()
+                    byWalking()
+                }
+                else {
+                    alert('failed' + this.getStatus());
+                }
+            }, { enableHighAccuracy: true })
+        }
+
+        // 规划步行方案
+        function byWalking() {
+            map.clearOverlays()
+            console.log('规划步行方案')
+            console.log(myLocalion, point)
+            var walking = new BMap.WalkingRoute(map, {
+                renderOptions: {
+                    map: map,
+                    panel: "r-result",
+                    autoViewport: true
+                }
+            });
+            walking.search(myLocalion, point)
+        }
+
+        function byCar() {
+            map.clearOverlays()
+            console.log("规划驾车路线")
+            var driving = new BMap.DrivingRoute(map, {
+                renderOptions: {
+                    map: map,
+                    panel: "r-result",
+                    autoViewport: true
+                }
+            });
+            driving.search(myLocalion, point)
+        }
+
+        function byBus() {
+            map.clearOverlays()
+            var transit = new BMap.TransitRoute(map, {
+                renderOptions: {
+                    map: map,
+                    panel: "r-result"
+                }
+            });
+            transit.search(myLocalion, point)
+        }
+
+        // 地图初始化
+        function init() {
+            map = new BMap.Map("allmap");
+            // 初始点
+            map.centerAndZoom(new BMap.Point(118.384812,31.288195), 11);
+            map.addControl(new BMap.MapTypeControl({
+                mapTypes: [
+                    BMAP_NORMAL_MAP,
+                    BMAP_HYBRID_MAP
+                ]
+            }));
+            map.enableScrollWheelZoom(true);
+            // getLocaltion()
+            myLocalion = new BMap.Point(118.384812,31.288195);
+            getPoint()
+            byWalking()
+        }
+        window.onload = loadJScript;  //异步加载地图
+    </script>
+</body>
+
+</html>

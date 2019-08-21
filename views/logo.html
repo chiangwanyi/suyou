@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Logo</title>
+    <style rel="stylesheet">
+        .ball-cont {
+            width: 100%;
+            height: 90%;
+            position: absolute;
+            right: 0;
+            top: 20px;
+            z-index: 1;
+            margin-left: 0px;
+            margin-right: 0px;
+            overflow: hidden;
+        }
+
+        .ball-bg {
+            overflow: hidden;
+            position: relative;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background-image: url("public/images/logo/img/ball-bg2(3).png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .axlewire-cont {
+            position: absolute;
+            z-index: 5;
+            width: 400px;
+            height: 400px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+
+        div.axlewire {
+            width: 1px;
+            height: 380px;
+            position: relative;
+            margin: 20px auto 0;
+            background: transparent;
+            border-right: 1px dashed #ffd700;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(16deg);
+        }
+
+        div.axlewire.ani {
+            animation: myrotate 30s linear infinite forwards;
+        }
+
+        .cirh {
+            border-radius: 50%;
+            position: absolute;
+            top: 45%;
+            left: 55%;
+            border: 2px solid #ffd700;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .cirh1 {
+            width: 230px;
+            height: 230px;
+            margin: -110px 0 0 -120px;
+            transform: translateZ(0px) translateY(-95px) rotateX(90deg);
+            background-image: url("public/images/logo/img/320-320(3).png");
+        }
+
+        .cirh2 {
+            width: 300px;
+            height: 300px;
+            margin: -160px 0 0 -150px;
+            transform: translateZ(0px) translateY(0px) rotateX(90deg);
+            background-image: url("public/images/logo/img/380-380(3).png");
+        }
+
+        .cirh3 {
+            width: 250px;
+            height: 250px;
+            margin: -210px 0 0 -120px;
+            transform: translateZ(0px) translateY(160px) rotateX(90deg);
+            background-image: url("public/images/logo/img/320-320(3).png");
+        }
+
+        .cirh4 {
+            width: 130px;
+            height: 130px;
+            margin: -100px 0 0 -60px;
+            transform: translateZ(0px) translateY(170px) rotateX(90deg);
+            background-image: url("public/images/logo/img/200-200(3).png");
+        }
+
+        .cirv {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-left: -150px;
+            margin-top: 30px;
+            /*border: 2px solid #20e03f;*/
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+        .cirv1 {
+            background-image: url("public/images/logo/img/cirv1(3).png");
+            border: none;
+        }
+
+        .cirv2 {
+            background-image: url("public/images/logo/img/cirv2(3).png");
+            border: none;
+        }
+
+        .cirv3 {
+            background-image: url("public/images/logo/img/cirv3(3).png");
+            border: none;
+        }
+
+        .cirv4 {
+            background-image: url("public/images/logo/img/cirv4(3).png");
+            border: none;
+        }
+
+        .cirv5 {
+            background-image: url("public/images/logo/img/cirv4(3).png");
+            border: none;
+        }
+
+        .dot-cont {
+            text-align: left;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+            width: 10px;
+            height: 18px;
+            margin: -13px 0 0 -56px;
+            /*transform:translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);*/
+        }
+
+        .axlewire .dc1 {
+            transform: rotateY(-3deg) translateY(0px) translateZ(170px);
+        }
+
+        .axlewire .dc2 {
+            transform: rotateY(68deg) translateY(0px) translateZ(175px);
+        }
+
+        .axlewire .dc3 {
+            transform: rotateY(102deg) translateY(0px) translateZ(175px);
+        }
+
+        .axlewire .dc4 {
+            transform: rotateY(173deg) translateY(0px) translateZ(175px);
+        }
+
+        .axlewire .dc5 {
+            transform: rotateY(210deg) translateY(0px) translateZ(170px);
+        }
+
+        .axlewire .dc6 {
+            transform: rotateY(257deg) translateY(0px) translateZ(170px);
+        }
+
+        .axlewire .dc7 {
+            transform: rotateY(321deg) translateY(0px) translateZ(170px);
+        }
+
+        .axlewire .dot-cont .info {
+            display: inline-block;
+            border: 1px solid #ffffff;
+            padding: 0 5px;
+            color: #ffffff;
+            font-size: 14px;
+            text-align: center;
+            line-height: 28px;
+            box-sizing: border-box;
+            /*box-shadow:0px 0px 5px 4px #252d22 inset;*/
+            text-decoration: none;
+            background-color: rgba(250, 249, 250, 0);
+            white-space: nowrap;
+        }
+
+        .dot-cont .dot {
+            display: inline-block;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #ffa600;
+            background: #ffffff;
+        }
+
+        .ball-shade1 {
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            z-index: 3;
+            margin: -140px 0 0 -140px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url("public/images/logo/img/ball-shade3(4).png");
+            background-color: rgba(240, 133, 11, 0.884);
+            /* background-image: linear-gradient(45deg,#f12711,#f5af19); */
+        }
+
+        .ball-shade1.ani {
+            animation: myrotate2 30s linear infinite forwards;
+        }
+
+        .roaDot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            margin: -5px 0 0 -5px;
+            border: 2px solid #ffd700;
+        }
+
+        .roaDot-cont {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            left: 50%;
+            top: 50%;
+            margin: -3px 0 0 -3px;
+            animation: roaDotrotate 10s linear infinite forwards;
+        }
+
+        .rd1 {
+            top: 100px;
+            left: 150px;
+        }
+
+        .rd2 {
+            right: 150px;
+            bottom: 80px;
+        }
+
+        @keyframes roaDotrotate {
+            0% {
+                transform: rotateX(0deg) rotateZ(0deg)
+            }
+
+            100% {
+                transform: rotateX(0deg) rotateZ(360deg)
+            }
+        }
+
+        @keyframes myrotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(16deg);
+            }
+
+            100% {
+                transform: rotateX(0deg) rotateY(360deg) rotateZ(16deg);
+            }
+        }
+
+        @keyframes myrotate2 {
+            0% {
+                transform: rotateY(0deg)
+            }
+
+            100% {
+                transform: rotateY(-360deg)
+            }
+        }
+
+        #zi {
+            position: absolute;
+            top: 400px;
+            /* left: 30%; */
+            width: 100%;
+            /* border: 1px solid red; */
+            text-align: center;
+            animation: myfirst 5s;
+            animation-name: myfirst;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: running;
+        }
+
+        @keyframes myfirst {
+            from {
+                font-size: 1.2em;
+            }
+
+            to {
+                font-size: 1.75em;
+            }
+        }
+    </style>
+
+</head>
+
+<body style="background-image: url(public/images/logo/bg1.jpg">
+
+
+    <div class="ball-cont">
+        <div class="ball-bg">
+            <div class="axlewire-cont">
+                <div class="axlewire ani" style="transform: rotateX(0deg) rotateY(-4209.72deg) rotateZ(16deg)">
+                    <div class="center"></div>
+                    <div class="ball-shade1 ani" style="transform: rotateY(4209.72deg);"></div>
+                    <div class="cirh cirh1"></div>
+                    <div class="cirh cirh2"></div>
+                    <div class="cirh cirh3"></div>
+                    <div class="cirh cirh4"></div>
+
+                    <div class="cirv cirv1" ondragstart="return false"
+                        style="transform: rotateY(0deg) translateZ(0px);"></div>
+                    <div class="cirv cirv4" ondragstart="return false"
+                        style="transform: rotateY(72deg) translateZ(0px);"></div>
+                    <div class="cirv cirv2" ondragstart="return false"
+                        style="transform: rotateY(144deg) translateZ(0px);"></div>
+                    <div class="cirv cirv5" ondragstart="return false"
+                        style="transform: rotateY(216deg) translateZ(0px);"></div>
+                    <div class="cirv cirv3" ondragstart="return false"
+                        style="transform: rotateY(288deg) translateZ(0px);"></div>
+                    <!--1点common.bannerItem01-->
+                    <div class="dot-cont d1" ondragstart="return false"
+                        style="transform: rotateY(0deg) translateY(-95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">博主有什么推荐吗?</a>
+                    </div>
+                    <div class="dot-cont d1" ondragstart="return false"
+                        style="transform: rotateY(72deg) translateY(-95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">这个"小酥"机器人好好玩</a>
+                    </div>
+                    <div class="dot-cont d1" ondragstart="return false"
+                        style="transform: rotateY(144deg) translateY(-95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">这家店我去过</a>
+                    </div>
+                    <div class="dot-cont d1" ondragstart="return false"
+                        style="transform: rotateY(216deg) translateY(-95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">Happy day!</a>
+                    </div>
+                    <div class="dot-cont d1" ondragstart="return false"
+                        style="transform: rotateY(288deg) translateY(-95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">好像再去那家店</a>
+                    </div>
+
+                    <!--点2-->
+                    <div class="dot-cont d2 dc1">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">香山公园早上好安静</a>
+                    </div>
+                    <div class="dot-cont d2 dc2">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">来过</a>
+                    </div>
+                    <div class="dot-cont d2 dc3">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">问问小酥明天有啥好玩的地方</a>
+                    </div>
+                    <div class="dot-cont d2 dc4">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">挺</a>
+                    </div>
+                    <div class="dot-cont d2 dc5">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">day by day</a>
+                    </div>
+                    <div class="dot-cont d2 dc6">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">小酥好呆萌</a>
+                    </div>
+                    <div class="dot-cont d2 dc7">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">有来偶遇的吗</a>
+                    </div>
+                    <!--点3-->
+                    <div class="dot-cont d3" ondragstart="return false"
+                        style="transform: rotateY(0deg) translateY(95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">今晚的消费由赵公子买单</a>
+                    </div>
+                    <div class="dot-cont d3" ondragstart="return false"
+                        style="transform: rotateY(72deg) translateY(95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">阳光ktv不行啊</a>
+                    </div>
+                    <div class="dot-cont d3" ondragstart="return false"
+                        style="transform: rotateY(144deg) translateY(95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">好多人</a>
+                    </div>
+                    <div class="dot-cont d3" ondragstart="return false"
+                        style="transform: rotateY(216deg) translateY(95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">点赞</a>
+                    </div>
+                    <div class="dot-cont d3" ondragstart="return false"
+                        style="transform: rotateY(288deg) translateY(95px) translateZ(170px);">
+                        <div class="dot"></div>
+                        <a href="javascript:void (0)" target="_blank" class="info">希望越来越好</a>
+                    </div>
+                </div>
+            </div>
+            <div class="roaDot-cont">
+                <div class="roaDot rd1"></div>
+                <div class="roaDot rd2"></div>
+            </div>
+        </div>
+    </div>
+    <div id="inline-calendar"></div>
+    <div class="jianjie" style="margin-top:450px;text-align: center">
+        <img src="public/images/logo/AI.svg" style="width: 30px;height: 30px">
+        <br>
+        <small style="color:#ffa600">智能机器人"小酥"将进入app为你服务</small><br>
+    </div>
+    <footer>
+        <header class="demos-header" style="margin-top: 20px;color: #f8f3fd;font-size: 12px">
+            <div style="text-align: center"><img src="public/images/logo/logo.png"></div>
+        </header>
+        <p id="zi" style="color:#ffa600;text-align: center">点击屏幕进入</p>
+    </footer>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script>
+        var body = document.getElementsByTagName("body")[0];
+        body.onclick = function () {
+            window.location.href = "/";
+        }  
+    </script>
+</body>
+
+</html>

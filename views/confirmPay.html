@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/orderPay.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>支付订单</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content home">
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-flex">
+        <div class="money">
+            <h1>￥{{total}}</h1>
+            <small>{{name}}</small>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_radio">
+        <label class="weui-cell weui-check__label" for="x11">
+            <div class="weui-cell__bd">
+                <p class="selpay"><img src="../public/images/orderPay/alipay.png"><span>支付宝支付<img
+                            src="../public/images/orderPay/recommend.png" width="20px"></span></p>
+            </div>
+            <div class="weui-cell__ft">
+                <input type="radio" class="weui-check" name="radio1" id="x11" checked="checked">
+                <span class="weui-icon-checked"></span>
+            </div>
+        </label>
+        <label class="weui-cell weui-check__label" for="x12">
+
+            <div class="weui-cell__bd">
+                <p class="selpay"><img src="../public/images/orderPay/weixin.png"><span>微信支付</span></p>
+            </div>
+            <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x12">
+                <span class="weui-icon-checked"></span>
+            </div>
+        </label>
+    </div>
+    <div class="weui-footer weui-footer_fixed-bottom">
+        <a href="/shopping/paySuccess" id="fu">
+            <p>确认支付</p>
+        </a>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+</body>
+
+</html>

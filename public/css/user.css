@@ -1,0 +1,48 @@
+* {
+    font-family: "Arial";
+}
+
+body {
+    background-color: #f6f6f6;
+}
+
+.user-top {
+    background-color: #FFFFFF;
+}
+
+.content {
+    margin: 0.5em;
+    text-align: center;
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+.back {
+    text-align: left
+}
+
+.back a img {
+    width: 2em;
+    height: 2em;
+}
+
+.user {
+    margin: 0;
+}
+
+.user .weui-cell {
+    /* padding: 0; */
+}
+
+.user .weui-cell .weui-cell__hd img {
+    width: 5em;
+    height: 5em;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.logout {
+    margin-top: 1.17647059em;
+    /* border: 0; */
+    background-color: #FFFFFF;
+}

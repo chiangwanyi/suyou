@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>我的</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/user.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex user-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>账户设置</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-cells user">
+        <a class="weui-cell weui-cell_access" href="/user/info">
+            <div class="weui-cell__hd">
+                <img src="{{user.avatar}}" alt="">
+            </div>
+            <div class="weui-cell__bd">
+                <p>{{user.nickname}}</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="/user/address">
+            <div class="weui-cell__bd">
+                <p>地址管理</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <div class="weui-cells">
+        <a class="weui-cell weui-cell_access" href="javascript:$.toast('功能建设中', 1000);">
+            <div class="weui-cell__bd">
+                <p>账户安全</p>
+            </div>
+            <div class="weui-cell__ft">密码设置</div>
+
+        </a>
+        <a id="clear_cache" class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd">
+                <p>清除缓存</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <div class="weui-cells">
+        <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd">
+                <p>酥游会员</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+
+        </a>
+        <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd">
+                <p>功能反馈</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+
+        </a>
+        <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd">
+                <p>关于酥游</p>
+            </div>
+            <div class="weui-cell__ft">v1.0.0</div>
+        </a>
+    </div>
+    <a class="weui-btn weui-btn_default logout" href="javascript:">退出登录</a>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script type="text/javascript">
+        $('.logout').click(function () {
+            $.confirm("确定要退出登录？", "退出登录", function () {
+                window.location.href = '/logout'
+            }, function () {
+
+            });
+        });
+        $('#clear_cache').click(function () {
+            $.confirm("确定要清除浏览器缓存？", "清除缓存", function () {
+                $.showLoading('清除中...')
+                $.ajax({
+                    url: '/',
+                    dataType: 'json',
+                    data: {
+                        cache: false
+                    },
+                    cache: false,
+                    ifModified: true,
+                    success: function () {
+                        $.hideLoading()
+                        $.toast("清除成功", 1000);
+                        setTimeout("window.location.href = '/'", 1100)
+                    }
+                });
+            }, function () {
+
+            });
+        })
+    </script>
+</body>
+
+</html>

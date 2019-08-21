@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选购</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/shopping.css">
+    <style>
+        .weui-row {
+            height: auto;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="#"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>选购</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content home">
+                <a href="/"><img src="/public/images/detail/home.png" alt="home" /></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 容器 -->
+    <div class="weui-tab">
+        <div class="weui-navbar">
+            {{each list}}
+            <a class="weui-navbar__item text-hidden" href="#{{$index+1}}">{{$value.name}}</a>
+            {{/each}}
+        </div>
+        <div class="weui-tab__bd">
+            <% for (var i = 0; i < list.length; i++) {%>
+            <div id="<%= i+1 %>" class="weui-tab__bd-item layout">
+                <p class="info">餐厅信息</p>
+                <h2><%= list[i].name %></h2>
+                <p class="intro">随时退&nbsp;|&nbsp;免预约&nbsp;|&nbsp;过期自动退&nbsp;<i class="weui-icon-info"
+                        style="font-size:12px;color:#8A8A8A;"></i><span>半年销售&nbsp;<%= list[i].sales %></span></p>
+                <h3 style="margin: 10px 0 10px 0">菜品详情</h3>
+                <div>
+                <div class="weui-cells">
+                    <% for (var j = 0; j < list[i].food_detail_title.length; j++) {%>
+                    <h4><%= list[i].food_detail_title[j] %></h4>
+                    <% for (var k = 0; k < list[i].food_detail_list[j].length; k++) {%>
+                    <div class="weui-cell" style="color: #7D7D7D;">
+                        <div class="weui-cell__bd">
+                            <p>● <%= list[i].food_detail_list[j][k].content %><small>(<%= list[i].food_detail_list[j][k].number %>份)</small>
+                            </p>
+                        </div>
+                        <div class="weui-cell__ft">￥<%= list[i].food_detail_list[j][k].price %></div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+                <!-- <a href="javascript:void(0);" class="weui-cell weui-cell_link dian">
+                    <div class="weui-cell__bd" style="text-align: center;color:#00DDDD">查看更多</div>
+                </a> -->
+            </div>
+                <h3 style="margin: 10px 0 10px 0">温馨提示</h3>
+                <div>
+                <div class="weui-cells tishi">
+                    <% for (var j = 0; j < list[i].hint_title.length; j++) {%>
+                    <h4><%= list[i].hint_title[j] %></h4>
+                    <% for (var k = 0; k < list[i].hint_list[j].length; k++) {%>
+                    <div class="weui-cell" style="color: #7D7D7D;">
+                        <div class="weui-cell__bd">
+                            <p>● <%= list[i].hint_list[j][k] %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+                <!-- <a href="javascript:void(0);" class="weui-cell weui-cell_link dian">
+                    <div class="weui-cell__bd" style="text-align: center;color:#00DDDD">查看更多</div>
+                </a> -->
+            </div>
+                <div class="foot">
+                    <div class="weui-row weui-no-gutter">
+                        <div class="weui-col-40">
+                            <h4>￥<span class="number"><%= list[i].price*list[i].discount %></span> <small><span class="number"><%= list[i].discount*10 %></span>折</small></h4>
+                            <p>最高门市价 ￥<%= list[i].price %></p>
+                        </div>
+                        <div class="weui-col-60">
+                            <a href="/shopping/orderPay?gid=<%= list[i]._id %>&rid=#rid#" class="weui-btn weui-btn_mini weui-btn_warn pay">立即抢购</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/jquery-weui-build/js/swiper.min.js" type="text/javascript" charset='utf-8'></script>
+    <script>
+        $(".swiper-container").swiper({
+            loop: true
+        });
+    </script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+    <script>
+        function getvl(name) {
+            var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)", "i");
+            if (reg.test(window.location.href))
+                return unescape(RegExp.$2.replace(/\+/g, " "));
+            return "";
+        };
+        $('.weui-navbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item--on').siblings('.weui-bar__item--on').removeClass('weui-bar__item--on');
+
+            //内容切换
+            $(".weui-tab__bd .weui-tab__bd-item--active").removeClass('weui-tab__bd-item--active');
+            var data_toggle = jQuery(this).attr("href");
+            $(data_toggle).addClass("weui-tab__bd-item--active");
+        });
+
+        var type = getvl("type").split("#")[0]
+
+        console.log(type)
+
+        // 使用传过来的 数字 （id） 来控制该选项卡的切换
+        // 其实就是从页面 A 通过 URL ？ 后面的参数 给页面B 传一个 index
+
+        $('.weui-navbar .weui-navbar__item').eq(type - 1).addClass('weui-bar__item--on').siblings('.weui-bar__item--on').removeClass('weui-bar__item--on');
+        $(".weui-tab__bd .weui-tab__bd-item--active").removeClass('weui-tab__bd-item--active');
+        $('.weui-tab__bd .weui-tab__bd-item').eq(type - 1).addClass("weui-tab__bd-item--active");
+
+        $(function () {
+ 
+
+
+            var s = "/recommend/detail?id=" + getvl("rid") + "&key=" + getvl("key")
+            console.log(s)
+            $(".back>a").attr("href", s)
+            
+            var h = $("a.pay")
+            for (let i = 0;i < h.length;i++){
+                h[i].setAttribute("href", h[i].getAttribute("href").replace("#rid#",getvl("rid")))
+            }
+            
+            var list = document.getElementsByClassName("number")
+            for (let i in list) {
+                list[i].innerHTML = parseFloat(list[i].innerHTML).toFixed(1)
+            }
+        })
+    </script>
+    <script>
+        $(".dian").click(function () {
+            $(this).siblings(".weui-cells").css("height", "auto");
+            $(this).css("display", "none");
+        });   
+    </script>
+</body>
+
+</html>

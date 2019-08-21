@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>酥游</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/cms/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/newhome.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <style type="text/css">
+        .container {
+            height: calc(100vh);
+            width: calc(100vw);
+            overflow: hidden;
+            position: absolute;
+            /* z-index: 9999; */
+            z-index: -1;
+        }
+
+        .container ul {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* border: 1px solid red; */
+            z-index: -1;
+        }
+
+        .container li {
+            list-style: none;
+            width: 50px;
+            height: 50px;
+            /* background: #f00; */
+            position: absolute;
+            z-index: 99999;
+            top: 50%;
+            left: 100%;
+            background-image: url(/public/images/logo/AI.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .weui-row {
+            height: 120px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui-tab">
+        <div class="weui-tab__bd">
+            <div id="tab1" class="weui-tab__bd-item ">
+            </div>
+            <div id="tab2" class="weui-tab__bd-item weui-tab__bd-item--active ">
+                <div class="content-ai">
+                    <div id="intoai">
+                        <div class="content">
+                            <div class="one">
+                                <p>小酥</p><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="page" class="page">
+                    <div class="head">
+                        <div class="weui-row weui-no-gutter">
+                            <div class="weui-col-30" style="margin-top:0;">
+                                <a href="/me" class="image">
+                                    <img src="{{if user != null}}{{user.avatar}}{{else}}/public/images/avatar/avatar-default.png{{/if}}"
+                                        alt="头像">
+                                </a>
+                            </div>
+                            <div class="weui-col-30">
+                                <div class="dress">
+                                    <label id="ddd" for="city-picker">芜湖&nbsp;<i class="fa fa-chevron-down"></i></label>
+                                    <input type="text" id='city-picker' />
+                                </div>
+                            </div>
+                            <div class="weui-col-40">
+                                <div class="weather"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lunbo">
+                        <div class="swiper-container swiper-container-horizontal">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper"
+                                style="transform: translate3d(-1280px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2"
+                                    style="width: 320px;"><img src="/public/images/home/you-1.jpg"></div>
+                                <!-- Slides -->
+                                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0"
+                                    style="width: 320px;">
+                                    <img src="/public/images/home/travel3.jpg">
+                                    <div class="weui-flex"
+                                        style="position: relative;top: -50px;background-color: #20120f; opacity: 0.7">
+                                        <div class="weui-flex__item">
+                                            <div class="content_shop">
+                                                <p
+                                                    style="margin-top: 12px;color: #fff;font-size: 1.3em;margin-left: 0.5em;">
+                                                    玩转世界</p>
+                                            </div>
+                                        </div>
+                                        <div class="weui-flex__item">
+                                            <div class="content_shop">
+                                                <a href="/recommend/detail?id=5d3d4eadad114340a0acb5f0"
+                                                    class="weui-btn weui-btn_default"
+                                                    style="border-radius: 5em;width: 100px;float: right;font-size: 0.9em;height: 35px;margin-top: 8px;margin-right: 0.5em;opacity:0.6;">点击进入</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1"
+                                    style="width: 320px;">
+                                    <img src="/public/images/home/food5.jpg">
+                                    <div class="weui-flex"
+                                        style="position: relative;top: -50px;background-color: #20120f; opacity: 0.7">
+                                        <div class="weui-flex__item">
+                                            <div class="content_shop">
+                                                <p
+                                                    style="margin-top: 12px;color: #fff;font-size: 1.3em;margin-left: 0.5em;">
+                                                    吃遍天下美食</p>
+                                            </div>
+                                        </div>
+                                        <div class="weui-flex__item">
+                                            <div class="content_shop">
+                                                <a href="/recommend/detail?id=5d3585ffc5ec3118a02097f9"
+                                                    class="weui-btn weui-btn_default"
+                                                    style="border-radius: 5em;width: 100px;float: right;font-size: 0.9em;height: 35px;margin-top: 8px;margin-right: 0.5em;opacity:0.6;">点击进入</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2"
+                                    style="width: 320px;">
+                                    <img src="/public/images/home/travel.jpg">
+                                    <div class="weui-flex"
+                                        style="position: relative;top: -50px;background-color: #20120f; opacity: 0.7">
+                                        <div class="weui-flex__item">
+                                            <div class="content_shop">
+                                                <p
+                                                    style="margin-top: 12px;color: #fff;font-size: 1.3em;margin-left: 0.5em;">
+                                                    人民广场那条街</p>
+                                            </div>
+                                        </div>
+                                        <div class="weui-flex__item">
+                                            <div class="content_shop">
+                                                <a href="/recommend/detail?id=5d3d52cfad114340a0acb5f7"
+                                                    class="weui-btn weui-btn_default"
+                                                    style="border-radius: 5em;width: 100px;float: right;font-size: 0.9em;height: 35px;margin-top: 8px;margin-right: 0.5em;opacity:0.6;">点击进入</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-main">
+
+                        <!-- 推荐菜 -->
+                        <div class="advice">
+                            {{each list}}
+                            <div class="weui-flex restaurant" style="margin: 10px;border-radius: 5px;">
+                                <a href="/recommend/detail?id={{$value._id}}">
+                                    <div class="recommend">
+                                        <p class="hotRecommend" style="margin-left: 1.5%;">
+                                            <small>热门推荐</small>&nbsp;&nbsp;{{$value.name}}</p>
+                                        <p class="avgCost">
+                                            <% for(var i = 0; i < $value.hot; i++){ %><img
+                                                src="/public/images/recommend/orangeStar.jpg"><% } %><% for(var i = 5; i > $value.hot; i--){ %><img
+                                                src="/public/images/recommend/whiteStar.jpg"><% } %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>￥{{$value.ave_price}}/人</small>
+                                        </p>
+                                        <div class="weui-flex food">
+                                            <div class="weui-flex__item" style="text-align: center;">
+                                                <img src="{{$value.img}}">
+                                            </div>
+                                        </div>
+                                        <p style="margin-left: 1.5%;"><small>{{$value.address}}</small></p>
+                                    </div>
+                                </a>
+                            </div>
+                            {{/each}}
+                            <a href="javascript:;" id="loadmore" class=""
+                                style="color: rgba(253, 184, 45);text-align: center;margin-bottom: 60px;">加载更多<i class="fa fa-angle-double-down"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="tab3" class="weui-tab__bd-item ">
+            </div>
+        </div>
+        <div class="weui-tabbar content-bottom">
+            <a href="/community" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/community.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">圈子</p>
+            </a>
+            <a href="javascript:" class="weui-tabbar__item weui-bar__item--on">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/home.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">主页</p>
+            </a>
+            <a href="/me" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/me.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">我</p>
+            </a>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/jquery-weui-build/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/public/jquery-weui-build/js/city-picker.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var step = 0;
+        var re_tmpl = `
+        <div class="weui-flex" style="margin: 10px;border-radius: 5px;">
+            <a href="/recommend/detail?id=#_id#">
+                <div class="recommend">
+                    <p class="hotRecommend" style="margin-left: 1.5%;">
+                        <small>热门推荐</small>&nbsp;&nbsp;#name#</p>
+                    <p class="avgCost">#start#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>￥#price#/人</small>
+                    </p>
+                    <div class="weui-flex food">
+                        <div class="weui-flex__item" style="text-align: center;">
+                            <img src="#img#">
+                        </div>
+                    </div>
+                    <p style="margin-left: 1.5%;"><small>#address#</small></p>
+                </div>
+            </a>
+        </div>`
+
+        $(function () {
+            FastClick.attach(document.body);
+        });
+        $(".swiper-container").swiper({
+            loop: true,
+            autoplay: 3000
+        });
+        $('div.ball-cont').click(function () {
+            console.log('pass')
+        })
+        $('#loadmore').click(function () {
+            step++;
+            $.ajax({
+                url: '/',
+                type: 'post',
+                data: {
+                    step: step
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    for (let i in data.list) {
+                        var new_re = re_tmpl.replace("#_id#", data.list[i]._id)
+                        new_re = new_re.replace("#img#", data.list[i].img)
+                        new_re = new_re.replace("#name#", data.list[i].name)
+                        new_re = new_re.replace("#price#", data.list[i].ave_price)
+                        new_re = new_re.replace("#address#", data.list[i].address)
+                        var start = ''
+                        for (let j = 0; j < data.list[i].hot; j++) {
+                            start += `<img src="/public/images/recommend/orangeStar.jpg">`
+                        }
+                        for (let j = 5; j > data.list[i].hot; j--) {
+                            start += `<img src="/public/images/recommend/whiteStar.jpg">`
+                        }
+                        new_re = new_re.replace("#start#", start)
+                        $("#loadmore").before($(new_re))
+                    }
+                }
+            })
+        })
+    </script>
+    <script language="javascript" type="text/javascript">
+        $.ajax({
+            type: 'GET',
+            url: 'https://www.tianqiapi.com/api/',
+            data: 'version=v1&style=1001&city=芜湖',
+            dataType: 'JSON',
+            error: function () {
+                // alert('网络错误');
+                $('.weather').html('网络错误');
+            },
+            success: function (res) {
+                uptime = res.update_time.substring(11);
+                uptime = uptime.substring(0, uptime.length - 3);
+                // alert( '【' + res.city + '】' + res.data[0].wea + ' ' + res.data[0].tem1 + '/' + res.data[0].tem2 + ',' + uptime + '更新~' );
+                $('.weather').html(/*'【' + res.city + '】' +*/ res.data[0].wea + ' ' + res.data[0].tem1 + '/' + res.data[0].tem2 /*+ ',' + uptime + '更新~'*/);
+            }
+        });
+    </script>
+
+    <script>
+        $('#ddd').click(function () {
+            $('#ddd').css("display", "none");
+            $('.dress input').css("display", "inline");
+        });
+    </script>
+
+    <script>
+        $("#city-picker").cityPicker({
+            title: "请选择地址",
+            showDistrict: false,
+            onChange: function (picker, values, displayValues) {
+                console.log(values, displayValues);
+            }
+        });
+    </script>
+    <!-- <script>
+            $('.toai').click(function(){
+                window.location.href="/ai";
+            })
+       </script> -->
+    <script>
+        $('.content').click(function () {
+            window.location.href = "/ai";
+        })
+    </script>
+    <script>
+        // window.onload = function(){
+
+        var list = document.querySelector('#list');
+        var lis = list.getElementsByTagName('li');
+        var startX = 0, startY = 0;
+
+        for (let i = 0; i < lis.length; i++) {
+            var posL = 93;
+            lis[i].style.left = posL + '%';
+        }
+
+        for (let i = 0; i < lis.length; i++) {
+            var that = this;
+            lis[i].addEventListener('touchstart', function (e) {
+                console.log(e);
+                startX = e.targetTouches[0].pageX - this.offsetLeft;
+                startY = e.targetTouches[0].pageY - this.offsetTop;
+            });
+
+            lis[i].addEventListener('touchmove', function (e) {
+                console.log(e);
+                var leftX = e.targetTouches[0].pageX - startX;
+                var topY = e.targetTouches[0].pageY - startY;
+                var parentW = e.targetTouches[0].target.offsetParent.clientWidth;
+                var parentH = e.targetTouches[0].target.offsetParent.clientHeight;
+                var thisW = e.targetTouches[0].target.clientWidth;
+                var thisH = e.targetTouches[0].target.clientHeight;
+                var l = parentW - thisW;
+                var t = parentH - thisH;
+
+                if (leftX <= 0) {
+                    leftX = 0;
+                }
+
+                if (leftX >= l) {
+                    leftX = l;
+                }
+
+                if (topY <= 0) {
+                    topY = 0;
+                }
+
+                if (topY >= t) {
+                    topY = t;
+                }
+
+                this.style.left = leftX + 'px';
+                this.style.top = topY + 'px';
+            });
+        }
+        // };
+    </script>
+</body>
+
+</html>

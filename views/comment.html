@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+
+    <title>评论</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/community.css">
+
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex comment-top">
+        <div class="weui-flex__item">
+            <div class="contents back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="contents">
+                <p>贴子详情</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="contents more">
+                <a href="javascript:"><img src="/public/icon/more.png" alt="" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="weui-gallery" id="gallery" style="display: none;">
+        <span class="weui-gallery__img" id="galleryImg" style="background-image:url('')"></span>
+    </div>
+    <div class="weui-tab__bd content-padded">
+        <div id="community" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div class="weui-flex">
+                <div class="weui-flex__item container">
+                    <div class="user">
+                        <img src="{{note.user.avatar}}">
+
+                        <p>{{note.user.nickname}}</p>
+                    </div>
+                    <p class="userNote">{{note.text}}</p>
+                    {{if note.image}}
+                    <div class="uesrImage"><img class="showImg" src="{{note.image}}"></div>
+                    {{/if}}
+                </div>
+                <!-- <div class="weui-tabbar">
+                    <div class="weui-tabbar__item">
+                        <div class="weui-input"></div>
+                    </div>
+                    <div class="weui-tabbar__item">
+                        <a href="javascript:" class="weui-btn weui-btn_primary"></a>
+                    </div>
+                </div> -->
+                <div class="bottom">
+                    <div class="content_input"><input id="text" name="{{note._id}}" type="text" class="weui-input inputComment" placeholder="一起说吧...">
+                    </div>
+                    <div class="submit"><a href="javascript:" class="weui-btn weui-btn_mini weui-btn_primary submitComment">确定</a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="weui-flex">
+                <div class="recommend">
+                    <div class="reTitle">推荐</div>
+                    <div class="reContent">
+                        <div class="reImg"><img src="/public/images/community/headImage-1.jpg"></div>
+                        <div class="reWords">
+                            咱还是说话算话，下次视频再见呗[/害羞][/害羞][/害羞]。
+                            <p>来自@浅橙月**5663人觉得很赞</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="weui-flex">
+                <div class="recommendNum">
+                    <div class="reTitle"><b>评论 {{note.comment_number}}</b></div>
+                </div>
+            </div>
+            {{if note.comment_number == 0}}
+            <div class="weui-flex">
+                <div class="commentContent">
+                    <p style="text-align: center;font-size: 1.2em;color: #b3b1b1;">快来成为第一个评论的人吧！</p>
+                </div>
+            </div>
+            {{else}}
+            <% for(var i = note.comment_number - 1; i >= 0; i--){ %>
+            <div class="weui-flex">
+                <div class="commentContent">
+                    <div>
+                        <div class="headImg"><img src="<%= note.comments_list[i].comment_user.avatar %>"></div>
+                        <div class="userName">
+                            <b><%= note.comments_list[i].comment_user.nickname %></b>
+                            <small><%= note.comments_list[i].creation_date %></small>
+                        </div>
+                    </div>
+                    <div class="commentWord">
+                        <p><%= note.comments_list[i].text %></p>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            {{/if}}
+            <br><br><br>
+        </div>
+    </div>
+
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/comment.js"></script>
+    <script type="text/javascript">
+        $('.showImg').click(function () {
+            console.log($(this).attr('src'))
+            var $gallery = $("#gallery")
+            var $galleryImg = $("#galleryImg")
+            $galleryImg.css('background-image', "url(" + $(this).attr('src') + ")")
+            $gallery.fadeIn(100)
+        })
+
+        $('#gallery').click(function () {
+            $(this).fadeOut(100);
+        })
+    </script>
+</body>
+
+</html>

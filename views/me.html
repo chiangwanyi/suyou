@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>我的</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/me.css" />
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*CSS标签样式的写法，直接写标签名*/
+        body {
+            /*background:url("image/play.jpg") no-repeat;*/
+            background-size: cover;
+        }
+
+        /* CSS的第二种指定方法，类 class="box" .box*/
+        .box {
+            width: 100%;
+            /* height: expression(document.body.offsetWidth/5+"px"); */
+            background: #ffffff;
+            background-size: cover;
+            margin: 0px auto;
+            box-shadow: 0px 0px 5px #000;
+
+            /* display:none; */
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            height: 50px;
+            background: orange;
+
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .header .logo {
+            width: 400px;
+            height: 88px;
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .header .hide {
+            /* display: block; */
+            width: 30px;
+            height: 30px;
+            /* border: 1px solid #fff; */
+            font-size: 30px;
+            float: right;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 100%;
+            color: #fff;
+            /* box-shadow: 0px 0px 5px #000; */
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .center {
+            height: 77%;
+            background: #fff;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .send {
+            height: 50px;
+        }
+
+        /*指定ID=sendcONTENT的元素样式*/
+        #sendContent {
+            width: 100%;
+            height: 30px;
+            margin-left: 10px;
+            border: 1px solid orange;
+            /* border-top: 1px solid #ddd; */
+            outline: medium;
+        }
+
+        .bottom {
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .bottom span {
+            text-decoration: underline;
+            font: 14px/40px 微软雅黑;
+        }
+
+        button {
+            margin-top: 5px;
+            float: right;
+            margin-right: 20px;
+            width: 100px;
+            height: 32px;
+            font-size: 17px;
+            background: orange;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0px 0px 5px #000;
+        }
+
+        button:hover {
+            box-shadow: 0px 0px 10px 3px #000;
+        }
+
+        .left {
+            width: 100%;
+            color: #ff6600;
+        }
+
+        .msg {
+            position: relative;
+            border: 1px solid orange;
+            font-size: 1.2em;
+            padding: 5px;
+            top: -18px;
+            border-radius: 50px;
+            line-height: 27px;
+        }
+
+        .right {
+            float: right;
+            text-align: right;
+            width: 100%;
+        }
+
+        .right img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui-tab">
+        <div class="weui-tab__bd content-padded">
+            <div id="me" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div class="theme">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item about-me">
+                            <img src="{{user.avatar}}" alt="" />
+
+                            <a class="name">欢迎你，{{user.nickname}}</a>
+                        </div>
+                        <div class="top-icon">
+                            <img id="scan" src="/public/icon/scan.png" alt="" />
+                            <img id="setting" src="/public/icon/setting.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <p class="common-title">我的资产</p>
+                <div class="weui-flex number">
+                    <a class="weui-flex__item " href="javascript:$.toast('功能建设中', 1000);" style="color: #000000;">
+                        <img src="/public/images/me/voucher.png" alt="">
+                        <small>优惠券</small>
+                    </a>
+                    <a class="weui-flex__item" href="javascript:$.toast('功能建设中', 1000);" style="color: #000000;">
+                        <img src="/public/images/me/score.png" alt="">
+                        <small>积分</small>
+                    </a>
+                    <a class="weui-flex__item" href="javascript:$.toast('功能建设中', 1000);" style="color: #000000;">
+                        <img src="/public/images/me/rp.png" alt="">
+                        <small>红包</small>
+                    </a>
+                </div>
+                <p class="common-title">精选工具</p>
+                <div class="weui-flex common">
+                    <a href="/me/store" class="weui-flex__item">
+                        <img src="/public/images/me/favorite-2.png" alt="" />
+
+                        <p>我的收藏</p>
+                    </a>
+                    <a href="/me/order" class="weui-flex__item">
+                        <img src="/public/images/me/order.png" alt="" />
+
+                        <p>我的订单</p>
+                    </a>
+                    <a href="/me/map" class="weui-flex__item">
+                        <img src="/public/images/me/path-1.png" alt="" />
+
+                        <p>我的足迹</p>
+                    </a>
+                    <a href="/me/messages" class="weui-flex__item">
+                        <img src="/public/images/me/message-1.png" alt="" />
+
+                        <p>我的消息</p>
+                    </a>
+                </div>
+                <div class="weui-cells functions">
+                    <!-- <a href="/shops" class="weui-cell weui-cell_access">
+                        <div class="weui-cell__hd func-icon"><img src="/public/images/me/shop.png" alt="" /></div>
+                        <div class="weui-cell__bd"><span style="vertical-align: middle">店铺关注</span><span
+                                class="weui-badge">12</span></div>
+                        <div class="weui-cell__ft"></div>
+                    </a> -->
+                    <a href="javascript:$.toast('功能建设中', 1000);" class="weui-cell weui-cell_access">
+                        <div class="weui-cell__hd func-icon"><img src="/public/images/me/article-3.png" alt="" /></div>
+                        <div class="weui-cell__bd"><span style="vertical-align: middle">成为小编</span></div>
+                        <div class="weui-cell__ft"></div>
+                    </a>
+                    <div class="demos-content-padded">
+                        <a href="javascript:;" class="open-popup weui-cell weui-cell_access" data-target="#full"
+                            class="">
+                            <div class="weui-cell__hd func-icon"><img src="/public/images/me/customer_service-1.png"
+                                    alt="" />
+                            </div>
+                            <div class="weui-cell__bd"><span style="vertical-align: middle">联系客服</span></div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                    </div>
+                    <a href="javascript:$.toast('功能建设中', 1000);" class="weui-cell weui-cell_access">
+                        <div class="weui-cell__hd func-icon"><img src="/public/images/me/more.png" alt="" />
+                        </div>
+                        <div class="weui-cell__bd"><span style="vertical-align: middle">更多</span><span
+                                class="weui-badge">4</span></div>
+                        <div class="weui-cell__ft"></div>
+                    </a>
+                </div>
+                <div style="visibility: hidden;">
+                    <!-- 直接访问相机功能进行拍照 -->
+                    <input type="file" id='photo' accept="image/*" capture='camera'>
+                </div>
+                <!-- <span class="page-bottom">---到底了---</span> -->
+
+            </div>
+        </div>
+        <div id="full" class="weui-popup__container" style="display: none;">
+            <div class="weui-popup__overlay"></div>
+            <div class="weui-popup__modal">
+                <div class="box">
+                    <!--对话框的头部 START-->
+                    <div class="weui-flex item-top">
+                        <div class="weui-flex__item">
+                            <div class="content back">
+                                <a href="javascript:;" class="close-popup hide"><img src="/public/icon/back.png"
+                                        alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <div class="content">
+                                <p>客服</p>
+                            </div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <div class="content">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--对话框的头部 END-->
+                    <!--聊天内容 START-->
+                    <div class='center'>
+                        <div class='left'>
+                            <img width="50" height="50" src='/public/images/logo/AI.svg' />
+                            <span class='msg'>你好欢迎来到人工客服</span>
+                        </div>
+                        <div class='left'>
+                            <img width="50" height="50" src='/public/images/logo/AI.svg' />
+                            <span class='msg'>有什么想和我聊的吗？</span>
+                        </div>
+                    </div>
+                    <!--聊天内容 END-->
+                    <!--底部区域 START-->
+                    <div class="send">
+
+                        <div class="weui-row weui-no-gutter" style="padding-top:20px;border-top:2px solid orange ">
+                            <div class="weui-col-70" style="border-radius: 20px">
+                                <input type="text" id="sendContent" placeholder="请输入内容"
+                                    style="border-radius: 20px;padding: 5px" />
+                            </div>
+                            <div class="weui-col-20">
+                                <div class="bottom">
+                                    <!--<span>满意度调查</span>-->
+                                    <!--<span>教我说说话吧</span>-->
+                                    <button>发送</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--底部区域 END-->
+                </div>
+            </div>
+        </div>
+        <div class="weui-tabbar content-bottom">
+            <a href="/community" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/community.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">圈子</p>
+            </a>
+            <a href="/" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/home.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">主页</p>
+            </a>
+            <a href="javascript:" class="weui-tabbar__item weui-bar__item--on">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/me.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">我</p>
+            </a>
+        </div>
+    </div>
+
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script>
+        $('.about-me').click(function () {
+            window.location.href = '{{if user}}/user{{else}}/login{{/if}}'
+        })
+
+        $('#setting').click(function () {
+            window.location.href = '{{if user}}/user{{else}}/login{{/if}}'
+        })
+
+        $('#scan').click(function () {
+            $('#photo').click()
+        })
+
+        $('#photo').on('change', function (e) {
+            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+                if (url) {
+                    src = url.createObjectURL(file);
+                    window.location.href = src
+                } else {
+                    src = e.target.result;
+                }
+            }
+        })
+    </script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+    <script>
+        $(document).on("open", ".weui-popup-modal", function () {
+            console.log("open popup");
+        }).on("close", ".weui-popup-modal", function () {
+            console.log("close popup");
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("button").click(function () {
+                var content = $("#sendContent").val();
+                var center = $(".center");
+                var html = "<div class='right'><span class='msg'>" + content + "</span><img width='50' height='50' src='{{user.avatar}}'/></div>";
+                center.append(html);
+                center.scrollTop(center[0].scrollHeight);
+                $("#sendContent").val("");
+                $.ajax({
+                    type: "get",
+                    url:"https://www.tuling123.com/openapi/api?key=7e0c61672f674208a85f85f7ff08855f&userid=robot&info="+content,
+                    success: function (result) {
+                        var obj = result;
+                        var tmp = "<span>" + obj.text + "</span>";
+                        if (obj.url) {
+                            tmp += "<a href='" + obj.url + "' target=_blank>" + obj.text + "</a>";
+                        }
+                        var html = "<div class='left'><img width='50' height='50' src='/public/images/logo/AI.svg'/><span class='msg'>" + tmp + "</span></div>";
+                        center.append(html);
+                        center.scrollTop(center[0].scrollHeight);
+                    }
+                });
+            });
+
+        });
+        window.onkeydown = function (event) {
+            var key = event.keyCode;
+            if (key == 13) {
+                $("button").click();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/login.css">
+</head>
+
+<body ontouchstart class="bg">
+    <div class="main-color">
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <div class="weui-cells__title login-title">登录</div>
+            </div>
+            <div class="weui-flex__item">
+                <div class="weui-cells__title login-title" id="toHome"><img src="/public/icon/home.png" alt="home" />
+                </div>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item" id="logo">
+                <img src="/public/images/login/logo.png" alt="logo" />
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item login-panel">
+                <div class="weui-cells input-bg">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd" style="width: 15%">
+                            <div class="weui-label">
+                                <img class="tel-icon" src="/public/icon/tel.png" alt="tel" />
+                            </div>
+                        </div>
+                        <div class="weui-cell__bd" style="width: 85%">
+                            <input class="weui-input" type="tel" name="tel" id="tel" AUTOCOMPLETE="off"
+                                placeholder="请输入手机号" />
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cells input-bg">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd" style="width: 15%">
+                            <div class="weui-label">
+                                <img class="pwd-icon" src="/public/icon/password.png" alt="pwd" />
+                            </div>
+                        </div>
+                        <div class="weui-cell__bd" style="width: 85%">
+                            <input class="weui-input" type="password" name="password" id="password" AUTOCOMPLETE="off"
+                                placeholder="请输入登录密码" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <div class="weui-btn-area">
+                    <a href="javascript:" class="weui-btn weui-btn_primary" id="loginBtn"><i id="loginLoading"></i>登&nbsp;录</a>
+                </div>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item" id="register">
+                <a href="/register">注册账号</a>
+            </div>
+            <div class="weui-flex__item" id="forgotPwd">
+                <a href="javascript:$.toast('功能建设中', 1000);">忘记密码?</a>
+            </div>
+        </div>
+    </div>
+    <!-- 以下代码仅用于测试 -->
+
+    <!-- 测试代码结束 -->
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选购</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/shop.css">
+    <link rel="stylesheet" href="/public/css/voucher.css">
+    <style>
+        .weui-row {
+            height: auto;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>选购</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content home">
+                <a href="/"><img src="/public/images/detail/home.png" alt="home" /></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 容器 -->
+    <div class="weui-tab">
+        <div class="weui-navbar">
+            {{each list}}
+            <a class="weui-navbar__item" href="#{{$index+1}}">{{$value.total}}元代{{$value.price}}元劵</a>
+            {{/each}}
+        </div>
+        <div class="weui-tab__bd">
+            {{each list}}
+            <div id="{{$index+1}}" class="weui-tab__bd-item layout">
+                <div class="x">
+                    <div class="juan">
+                        <p class="info">&nbsp;普通优惠券&nbsp;&nbsp;</p>
+                        <h2>￥{{$value.total}}元&nbsp;代&nbsp;{{$value.price}}&nbsp;元劵</h2>
+                        <p class="info">&nbsp;周一至周日&nbsp;可用</p>
+                    </div>
+                </div>
+                <p class="intro">不限张数&nbsp;|&nbsp;随时退&nbsp;|&nbsp;免预约&nbsp;|&nbsp;过期自动退&nbsp;<i class="weui-icon-info"
+                        style="font-size:12px;color:#8A8A8A;"></i><span>半年销售&nbsp;{{$value.sales}}</span></p>
+                <div class="weui-cells">
+                    <h5>有效期：</h5>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>●<span class="date"></span>至<span class="date"></span> 23:59 (
+                                周末、法定节假日通用 )</p>
+                        </div>
+                    </div>
+                    <h5>使用时间：</h5>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>● 9:00-23:00</p>
+                        </div>
+                    </div>
+                    <h5>使用规则:</h5>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>● 团购用户不可同时享受商家其他优惠</p>
+                        </div>
+                    </div>
+                    <a href="javascript:void(0);" class="weui-cell weui-cell_link dian">
+                        <div class="weui-cell__bd" style="text-align: center;color:#00DDDD">查看更多</div>
+                    </a>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>● 团购用户不可同时享受商家其他优惠</p>
+                            <p>● 酒水饮料等问题，请致电商咨询，以商家反馈为准</p>
+                            <p>● 如部分菜品因时令或其他不可抗因素导致无法提供，商家会用等价菜品替换，具体事宜请与商家协商</p>
+                            <p>● 可用包间，条件为：详情咨询商家</p>
+                            <p>● 无需预约，消费高峰期可能需要等位</p>
+                            <p>● 每桌最多使用1张消费券</p>
+                            <p>● 商家提供免费WiFi</p>
+                            <p>● 免费提供30个停车位</p>
+                            <p>● 仅限堂食，不提供餐前外带，餐毕未吃完可免费打包</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <div class="weui-row weui-no-gutter">
+                    <div class="weui-col-40">
+                        <h4>￥{{$value.total}}&nbsp;<small>{{$value.discount}}折</small></h4>
+                        <p>最高门市价 ￥{{$value.price}}</p>
+                    </div>
+                    <div class="weui-col-60">
+                        <a href="/shopping/orderPay?vid={{$index}}&rid=#rid#"
+                            class="weui-btn weui-btn_mini weui-btn_warn pay">立即抢购</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/jquery-weui-build/js/swiper.min.js" type="text/javascript" charset='utf-8'></script>
+    <script>
+        $(".swiper-container").swiper({
+            loop: true
+        });
+        $(function () {
+            var date = new Date()
+            var fmd = []
+            fmd[0] = date.getFullYear() + "." + (Number(date.getMonth()) + 1) + "." + date.getDate()
+            date.setDate(date.getDate() + 7)
+            fmd[1] = date.getFullYear() + "." + (Number(date.getMonth()) + 1) + "." + date.getDate()
+            var date_list = $(".date")
+            for (let i = 0; i < date_list.length; i++) {
+                date_list[i].innerText = fmd[i]
+            }
+
+            $(".back>a").attr("href", "/recommend/detail?id=" + getvl("rid") + "&key=" + getvl("key"))
+
+            var h = $("a.pay")
+            for (let i = 0; i < h.length; i++) {
+                h[i].setAttribute("href", h[i].getAttribute("href").replace("#rid#", getvl("rid")))
+            }
+        })
+    </script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+    <script>
+        function getvl(name) {
+            var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)", "i");
+            if (reg.test(window.location.href))
+                return unescape(RegExp.$2.replace(/\+/g, " "));
+            return "";
+        };
+        $('.weui-navbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item--on').siblings('.weui-bar__item--on').removeClass('weui-bar__item--on');
+
+            //内容切换
+            $(".weui-tab__bd .weui-tab__bd-item--active").removeClass('weui-tab__bd-item--active');
+            var data_toggle = jQuery(this).attr("href");
+            $(data_toggle).addClass("weui-tab__bd-item--active");
+        });
+
+        var type = getvl("type").split("#")[0]
+
+        console.log(type)
+
+        // 使用传过来的 数字 （id） 来控制该选项卡的切换
+        // 其实就是从页面 A 通过 URL ？ 后面的参数 给页面B 传一个 index
+        $('.weui-navbar .weui-navbar__item').eq(type - 1).addClass('weui-bar__item--on').siblings('.weui-bar__item--on').removeClass('weui-bar__item--on');
+        $(".weui-tab__bd .weui-tab__bd-item--active").removeClass('weui-tab__bd-item--active');
+        $('.weui-tab__bd .weui-tab__bd-item').eq(type - 1).addClass("weui-tab__bd-item--active");
+    </script>
+    <script>
+        $(".dian").click(function () {
+            $(this).parents(".weui-cells").css("height", "auto");
+            $(this).css("display", "none");
+        });   
+    </script>
+</body>
+
+</html>

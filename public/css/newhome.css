@@ -1,0 +1,176 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    /* background-color: #FFC300; */
+    background: #ebebeb;
+    /* background-image: url(/public/images/home/timg.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity:0.5; */
+}
+
+.page {
+    width: 100vw;
+    background: rgba(248, 246, 246, 0.3);
+    width: 100%;
+}
+
+.head {
+    width: 100vm;
+    height: 50px;
+    overflow: hidden;
+    /* background-color: #FFC300; */
+    color: #141414;
+}
+
+.dress {
+    padding: 8px;
+}
+
+.weui-row, .weui-no-gutter {
+    background-color: rgba(253, 184, 45, 0.80);
+    color: #ffffff;
+    font-weight: bold;  
+}
+
+.weui-row, .weui-no-gutter .weui-col-30,.weui-col-40 {
+    margin-top: 5px;
+}
+
+.head .image {
+    padding: 8px;
+}
+
+.head .image img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: 7px;
+}
+
+.dress input {
+    display: none;
+    border: none;
+    width: 100px;
+    background: transparent;
+    font-size: 16px;
+}
+
+.weather {
+    margin-top: 5px;
+    /* border: 1px solid red; */
+    /* padding: 8px; */
+    line-height: 16px;
+}
+
+.content-ai {
+    position: absolute;
+    /* border: 1px solid red; */
+    background: transparent;
+    position: fixed;
+}
+
+#intoai {
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
+}
+
+.content {
+    position: fixed;
+    /* top: 100px; */
+    top: 43%;
+    right: 0;
+}
+
+.content div {
+    background: #FFC300;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 45%;
+}
+
+.content p {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: myfirst 1.5s infinite;
+    box-shadow: 0px 0px 1px #FFC300;
+    line-height: 50px;
+    font-size: 10px;
+}
+
+@keyframes myfirst {
+    20% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(1.4);
+    }
+    80% {
+        transform: scale(1.6);
+    }
+    100% {
+        transform: scale(1.8);
+    }
+    150% {
+        transform: scale(2.0);
+        display: none;
+    }
+}
+
+/*菜品推荐*/
+
+.recommend {
+    width: 98%;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 0.1em;
+    margin: 0.3em;
+    padding: 0.1em;
+}
+
+.hotRecommend {
+    font-weight: bold;
+}
+
+.hotRecommend small {
+    font-size: 0.6em;
+    background-color: orangered;
+    color: #ffffff;
+    padding: 0.1em;
+}
+
+.recommend span {
+    font-size: 0.7em;
+}
+
+.food img {
+    width: 97%;
+}
+
+.advice {
+    margin-top: 10px;
+}
+
+.advice .weui-flex {
+    background-color: #ffffff;
+}
+
+.advice a {
+    display: block;
+    padding-right: 0.4em;
+}
+
+.avgCost img {
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 0.2em;
+}

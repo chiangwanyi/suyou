@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>支付成功</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/paySuccess.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area">
+            <i class="weui-icon-success weui-icon_msg"></i>
+        </div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">支付成功</h2>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <p>酥游</p>
+                <h1 id="money">￥{{total}}</h1>
+                <a href="/" class="weui-btn weui-btn_primary return">返回酥游</a>
+                <a href="/me/order" class="weui-btn weui-btn_primary">我的订单</a>
+            </p>
+        </div>
+        <div class="weui-msg__extra-area">
+            <div class="weui-footer">
+                <p class="weui-footer__links">
+                    <a href="javascript:void(0);" class="weui-footer__link">酥游</a>
+                </p>
+                <p class="weui-footer__text">www.suyou.site</p>
+            </div>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/jquery-weui-build/js/swiper.min.js" charset="utf-8"></script>
+
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+
+</body>
+
+</html>

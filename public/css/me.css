@@ -1,0 +1,121 @@
+* {
+    font-family: "Arial";
+}
+
+body {
+    background-color: #F7F7F7;
+}
+
+.theme {
+    background-image: url("/public/images/me/bg.jpg");
+    width: 100%;
+    height: 16%;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+}
+
+.theme .weui-flex {
+    height: 100%;
+}
+
+.about-me {
+    width: 70%;
+    height: 88px;
+    line-height: 88px;
+}
+
+.about-me img {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 5px;
+    float: left;
+}
+
+.name {
+    color: #FFFFFF;
+    font-size: 20px;
+    float: left;
+    width: 60%;
+    height: 88px;
+    margin-top: 5px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-info .uid {
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+.top-icon {
+    width: 25%;
+    text-align: right;
+}
+
+.top-icon img {
+    height: 30%;
+    margin: 5px;
+}
+
+.common-title {
+    margin-top: 0.5em;
+    margin-right: 0.7em;
+    margin-left: 0.7em;
+    font-size: 1.2em;
+}
+
+.common {
+    margin-right: 0.7em;
+    margin-left: 0.7em;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: #ffffff;
+}
+
+.common a img {
+    width: 40%;
+}
+
+.common a p {
+    display: block;
+    color: #000000;
+    font-size: 0.8em;
+}
+
+.number {
+    /* margin-top: 1.5em; */
+    margin-right: 0.7em;
+    margin-left: 0.7em;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: #ffffff;
+}
+
+.number a p {
+    height: 1.3em;
+    line-height: 1.3em;
+    font-size: 1.3em;
+    display: block;
+}
+
+.number a small {
+    display: block;
+    margin-top: -3px;
+}
+
+.functions .func-icon {
+    width: 30px;
+    margin-right: 0.5em;
+}
+
+.functions .func-icon img {
+    width: 100%;
+}

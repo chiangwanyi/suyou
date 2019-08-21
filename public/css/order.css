@@ -1,0 +1,218 @@
+body, html {
+    margin: 0 auto;
+    padding: 0;
+    background-color: #f6f6f6;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.suyou-title {
+    text-align: center;
+    font-size: 34px;
+    /*margin: 0 15%;*/
+}
+
+.item-top {
+    background-color: #FFFFFF;
+}
+
+.content {
+    width: 100%;
+    margin: 0.5em 0;
+    text-align: center;
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+.back {
+    text-align: left
+}
+
+.back a img {
+    width: 2em;
+    height: 2em;
+}
+
+.content img {
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+    margin-top: -0.2em;
+}
+
+.content p {
+    width: 100%;
+}
+
+.weui-navbar {
+    background-color: #ffffff;
+    border: none;
+}
+
+.weui-navbar .weui-navbar__item {
+    border: none;
+}
+
+.weui-bar__item--on {
+    border-bottom: 2px solid orangered;
+}
+
+.weui-navbar:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #fff;
+    color: #ccc;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
+
+.weui-navbar__item:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid #fff;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transform: scaleX(.5);
+    transform: scaleX(.5);
+}
+
+.myorder {
+    background-color: white;
+    width: 100%;
+    padding-top: -0.5em;
+    /*margin: 3px;*/
+}
+
+.myorder .head img {
+    width: 35px;
+    height: 35px;
+    margin-right: 0.5em;
+    border-radius: 100%;
+    float: left;
+    margin-top: 7px;
+}
+
+.head h4 {
+    margin-left: 45px;
+}
+
+.head .weui-col-70 {
+    height: 48px;
+    line-height: 48px;
+}
+
+.head .weui-col-30 {
+    height: 48px;
+    line-height: 48px;
+}
+
+.head .weui-col-30 p {
+    display: inline-block;
+    margin-left: 20%;
+    color: rgb(241, 103, 11)
+}
+
+.myorder .storeName img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.weui-row {
+    /*border: 1px solid red;*/
+    padding: 0 10px;
+}
+
+.weui-col-70 {
+    /*border: 1px solid green;*/
+    width: 70%;
+}
+
+.weui-col-30 {
+    width: 30%;
+}
+
+.weui-btn_primary {
+    background-color: #fdb82d;
+    color: #ffffff;
+    /* border: rgb(194, 194, 194); */
+}
+
+.weui-btn {
+    border: none;
+}
+
+.weui-btn:after {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0);
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.storeName ul li {
+    list-style: none;
+    color: #7a7a7a;
+}
+
+.u {
+    margin-right: 20px;
+}
+
+.foot {
+    text-align: right;
+    padding: 10px;
+}
+
+.foot .weui-btn {
+    width: 100px;
+    margin-right: 0px;
+}
+
+.foot .weui-btn:after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.myorder {
+    margin-top: 10px;
+}
+
+.noshow {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.noshow p {
+    padding-top: 10px;
+    color: #cccccc;
+}

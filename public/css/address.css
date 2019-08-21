@@ -1,0 +1,56 @@
+.weui-cells {
+    margin-top: 0px;
+}
+
+.user_name {
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.user_tel {
+    margin-right: 5px;
+}
+
+.tag {
+    font-size: 0.5em;
+    display: inline-block;
+    padding: 1px;
+    border-radius: 5px;
+    color: #ffffff;
+    position: relative;
+    top: -3px;
+    margin-right: 5px;
+}
+
+.default {
+    background-color: #ff1900;
+}
+
+.common {
+    background-color: #006eff;
+}
+
+.add_main {
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+.add_sub {
+    font-size: 0.8em;
+}
+
+.add_address {
+    /* position: fixed;
+    bottom: 0.5em;
+    left: 3.5em; */
+}
+
+.add_address a {
+    color: #ffffff;
+    background-color: #ff1900;
+    display: block;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 30px;
+}

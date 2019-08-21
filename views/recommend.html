@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>推荐</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/recommend.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex item-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="/ai"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>推荐列表</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content home">
+                <a href="/"><img src="/public/images/detail/home.png" alt="home" /></a>
+            </div>
+        </div>
+    </div>
+    <!--推荐得东西-->
+    <div class="recommend">
+        <div class="weui-flex">
+            {{if restaurants.length != 0}}
+            <div class="recommendMain">
+                <div class="weui-flex__item recommendLeft" style="text-align: center">根据您的选择，我们为您做出了如下推荐</div>
+                <div class="weui-flex__item recommendRight"></div>
+            </div>
+            {{else}}
+            <div class="recommendMain">
+                <div class="weui-flex__item recommendLeft" style="text-align: center">暂无精准推荐</div>
+                <div class="weui-flex__item recommendRight"></div>
+            </div>
+            {{/if}}
+        </div>
+        {{each restaurants}}
+        <div class="recommendContent">
+            <a href="/recommend/detail?id={{$value._id}}&key={{key}}" class="recommendDetail">
+                <div class="recommendImg">
+                    <img src="{{$value.img}}">
+                    <p>营业时间 {{$value.business_time[0]}}&nbsp;-&nbsp;{{$value.business_time[1]}}</p>
+                </div>
+                <div class="restaurant ">
+                    <h4>{{$value.name}}</h4>
+                    <p class="avgCost">
+                        <% for(var i = 0; i < $value.hot; i++){ %><img
+                            src="/public/images/recommend/orangeStar.jpg"><% } %><% for(var i = 5; i > $value.hot; i--){ %><img
+                            src="/public/images/recommend/whiteStar.jpg"><% } %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>￥{{$value.ave_price}}/人</small>
+                    </p>
+                    <p class="place">{{$value.brief_position}}<small>距您{{$value.distance}}m</small>
+                    </p>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+    <div class="weui-loadmore">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+
+    <!-- <div class="weui-flex">
+        <div class="weui-flex__item returnRobot">
+            <a href="javascript:$.toast('功能建设中', 1000);"><img
+                    src="/public/images/recommend/robot.jpg"><span>我想要自己筛选</span></a>
+        </div>
+    </div> -->
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/jquery-weui-build/js/swiper.min.js" charset="utf-8"></script>
+    <script>
+        var re_tmpl = `
+        <div class="recommendContent">
+            <a href="/recommend/detail?id=#_id#" class="recommendDetail">
+                <div class="recommendImg">
+                    <img src="#img#">
+                    <p>营业时间 #business_time[0]#&nbsp;-&nbsp;#business_time[1]#</p>
+                </div>
+                <div class="restaurant ">
+                    <p class="avgCost">
+                        #start#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>￥#price#/人</small>
+                    </p>
+                    <p class="place">#brief_position#<small>距您#distance#m</small>
+                    </p>
+                </div>
+            </a>
+        </div>`
+
+        var next_title_tmpl = `
+        <div class="weui-flex">
+            <div class="recommendMain">
+                <div class="weui-flex__item recommendLeft" style="text-align: center">#text#</div>
+                <div class="weui-flex__item recommendRight"></div>
+            </div>
+        </div>`
+
+        $(".swiper-container").swiper({
+            loop: true,
+            autoplay: 3000
+        })
+
+        var skip = {
+            step: 1,
+            index: 1
+        }
+
+        var loading = false;
+
+        function getList() {
+            if (loading) return;
+            loading = true;
+            console.log('loading')
+            setTimeout(function () {
+                if (skip.index <= 2) {
+                    $.ajax({
+                        url: '/recommend/get',
+                        type: 'post',
+                        data: skip,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data.list)
+                            if (data.list.length == 0 && skip.index == 1) {
+                                skip.index++
+                                skip.step = 0
+                                console.log('pass')
+                                $(".recommend").append($(next_title_tmpl.replace("#text#", "根据您的其他需求，以下店铺也许也适合您")))
+                                getList()
+                            } else if (data.list.length == 0 && skip.index == 2) {
+                                $(".recommend").append($(next_title_tmpl.replace("#text#", "暂无其他推荐")))
+                                $(".weui-loadmore").attr("style", "display:none")
+                                loading = true
+                            } else {
+                                console.log(data.list)
+                                for (let i in data.list) {
+                                    var new_re = re_tmpl.replace("#_id#", data.list[i]._id)
+                                    new_re = new_re.replace("#img#", data.list[i].img)
+                                    new_re = new_re.replace("#business_time[0]#", data.list[i].business_time[0])
+                                    new_re = new_re.replace("#business_time[1]#", data.list[i].business_time[1])
+                                    new_re = new_re.replace("#name#", data.list[i].name)
+                                    new_re = new_re.replace("#price#", data.list[i].ave_price)
+                                    var start = ''
+                                    for (let j = 0; j < data.list[i].hot; j++) {
+                                        start += `<img src="/public/images/recommend/orangeStar.jpg">`
+                                    }
+                                    for (let j = 5; j > data.list[i].hot; j--) {
+                                        start += `<img src="/public/images/recommend/whiteStar.jpg">`
+                                    }
+                                    new_re = new_re.replace("#start#", start)
+                                    new_re = new_re.replace("#brief_position#", data.list[i].brief_position)
+                                    new_re = new_re.replace("#distance#", data.list[i].distance)
+                                    $(".recommend").append($(new_re))
+                                }
+                            }
+                        }
+                    })
+                    skip.step++
+                } else {
+                    console.log("index " + skip.index + " is empty.")
+                }
+                loading = false;
+            }, 300);
+        }
+
+        $(document.body).infinite().on("infinite", getList);
+
+    </script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+            $(document.body).scroll();
+        });
+    </script>
+</body>
+
+</html>

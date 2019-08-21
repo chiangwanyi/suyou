@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>店铺详情</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/detail.css">
+</head>
+
+<body ontouchstart>
+
+    <div id="detail">
+        <div class="weui-flex item-top">
+            <div class="weui-flex__item">
+                <div class="content back">
+                    <a href="javascript:backToList()"><img src="/public/icon/back.png" alt="" /></a>
+                </div>
+            </div>
+            <div class="weui-flex__item">
+                <div class="content">
+                    <p>详情</p>
+                </div>
+            </div>
+            <div class="weui-flex__item">
+                <div class="content home">
+                    <a href="/"><img src="/public/images/detail/home.png" alt="home" /></a>
+                </div>
+            </div>
+        </div>
+        <!--轮播图-->
+        <div class="weui-flex">
+            <img style="width: 100%;" src="{{ data.img }}">
+        </div>
+
+
+        <!--餐厅信息-->
+        <div class="resInformation">
+            <p class="information">{{data.name}}</p>
+            <a id="navigate" href="javascript:">
+                <p class="position"><img src="/public/images/detail/position.jpg"><span class="text-hidden"
+                        style="width: 55%;">{{data.address}}</span><img src="/public/images/detail/navy.jpg"
+                        style="width: 25px;height: 25px"></p>
+            </a>
+            <p class="position"><img src="/public/images/detail/time.jpg"><span class="text-hidden"
+                    style="width: 60%;">营业时间&nbsp;&nbsp;{{data.business_time[0]}}-{{data.business_time[1]}}</span>
+            </p>
+        </div>
+
+        <div class="recommendMenu" style="padding-top: 10px;">
+            {{if data.voucher_list.length != 0}}
+            <h3>优惠券</h3>
+            {{each data.voucher_list}}
+            <a href="/shopping/voucher?rid={{data._id}}&type={{$index+1}}&key={{key}}" class="voucher-a">
+                <div class="voucher-v">
+                    <div class="voucher-info">
+                        <h4>{{$value.price}}&nbsp;元代金劵</h4>
+                        <p>部分商品可用&nbsp;不限张数&nbsp;免预约</p>
+                        <h5>￥&nbsp;<span
+                                class="number">{{$value.price * $value.discount * 0.1}}</span><small>{{$value.discount}}折</small>
+                        </h5>
+                    </div>
+                    <div class="media-des">
+                        <a href="/shopping/voucher?rid={{data._id}}&type={{$index+1}}&key={{key}}"
+                            class="weui-btn weui-btn_mini weui-btn_warn">抢购</a>
+                        <p>半年售&nbsp;{{$value.sales}}</p>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+            {{/if}}
+
+            {{if data.menu_list.length != 0}}
+            <h3>到店吃套餐</h3>
+            <div class="weui-panel weui-panel_access">
+                <div class="weui-panel__bd">
+                    {{each data.menu_list}}
+                    <a href="/shopping/menu?gid={{$value._id}}&rid={{data._id}}&type={{$index+1}}&key={{key}}"
+                        class="weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <img class="weui-media-box__thumb" src="{{$value.img}}">
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title text-hidden" style="width: 60%;">{{$value.name}}</h4>
+                            <p class="weui-media-box__desc text-hidden" style="margin-left: 0px;width: 60%;">
+                                {{$value.profile}}</p>
+                            <!-- <p class="weui-media-box__desc" style="margin-left: 0px">周一至周日 免预约</p> -->
+                            <h5>￥<span class="number">{{$value.price * $value.discount}}</span><small>￥<span
+                                        class="number">{{$value.price}}</span></small>
+                                <i><span class="number">{{$value.discount * 10}}</span>折</i></h5>
+                        </div>
+                        <div class="media-des menu">
+                            <a href="/shopping/menu?gid={{$value._id}}&rid={{data._id}}&type={{$index+1}}&key={{key}}"
+                                class="weui-btn weui-btn_mini weui-btn_warn">抢购</a>
+                            <p>半年售&nbsp;{{$value.sales}}</p>
+                        </div>
+                    </a>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="ordinaryRecommend">
+            <h5><img src="/public/images/detail/ordinary.jpg">大众推荐</h5>
+            <p>椒香牛肉&nbsp;&nbsp;&nbsp;红糖糍粑&nbsp;&nbsp;&nbsp;清新饮品&nbsp;&nbsp;&nbsp;麻辣牛肉&nbsp;&nbsp;&nbsp;红烧排骨</p>
+        </div>
+
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/jquery-weui-build/js/swiper.min.js" charset="utf-8"></script>
+    <script>
+        $('#navigate').click(function () {
+            window.location.href = '/recommend/detail/navigate?id=' + getvl('id') + "&key=" + getvl("key");
+        })
+        $(".swiper-container").swiper({
+            loop: true,
+            autoplay: 3000
+        });
+        function getvl(name) {
+            var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)", "i");
+            if (reg.test(window.location.href))
+                return unescape(RegExp.$2.replace(/\+/g, " "));
+            return "";
+        };
+        function backToList() {
+            var key = getvl("key");
+            console.log(key)
+            window.location.href = '/recommend?key=' + key;
+        }
+        $(function () {
+            var btn_list = document.getElementsByClassName("media-des menu")
+            for (let i = 0; i < btn_list.length; i++) {
+                btn_list[i].setAttribute("style", "top:" + i * (100 / btn_list.length) + "%")
+            }
+            var list = document.getElementsByClassName("number")
+            for (let i in list) {
+                list[i].innerHTML = parseFloat(list[i].innerHTML).toFixed(1)
+            }
+        })
+    </script>
+    <script>
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+</body>
+
+</html>

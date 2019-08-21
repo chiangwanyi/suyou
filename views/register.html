@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/register.css">
+</head>
+
+<body ontouchstart class="bg">
+<div class="main-color">
+    <div class="weui-flex">
+        <div class="weui-flex__item">
+            <div class="weui-cells__title register-title">注册</div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="weui-cells__title register-title" id="toHome"><img src="/public/icon/home.png" alt="home"/>
+            </div>
+        </div>
+    </div>
+    <div class="weui-flex">
+        <div class="weui-flex__item register-panel">
+            <div class="weui-cells input-bg">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd" style="width: 15%">
+                        <div class="weui-label">
+                            <img class="tel-icon" src="/public/icon/tel.png" alt="tel"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell__bd" style="width: 85%">
+                        <input class="weui-input" type="tel" name="tel" id="tel" AUTOCOMPLETE="off"
+                               placeholder="请输入手机号"/>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cells input-bg">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd" style="width: 15%">
+                        <div class="weui-label">
+                            <img class="user-icon" src="/public/icon/user.png" alt="user"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell__bd" style="width: 85%">
+                        <input class="weui-input" type="text" name="nickname" id="nickname" maxlength="10"
+                               AUTOCOMPLETE="off"
+                               placeholder="请输入昵称"/>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cells input-bg">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd" style="width: 15%">
+                        <div class="weui-label">
+                            <img class="pwd-icon" src="/public/icon/password.png" alt="pwd"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell__bd" style="width: 85%">
+                        <input class="weui-input" type="password" name="password" id="password" AUTOCOMPLETE="off"
+                               placeholder="请输入登录密码"/>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cells input-bg">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd" style="width: 15%">
+                        <div class="weui-label">
+                            <img class="pwd-icon" src="/public/icon/password.png" alt="pwd"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell__bd" style="width: 85%">
+                        <input class="weui-input" type="password" name="re-password" id="re_password" AUTOCOMPLETE="off"
+                               placeholder="请确认登录密码"/>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cells input-bg">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd" style="width: 15%">
+                        <div class="weui-label">
+                            <img class="code-icon" src="/public/icon/code.png" alt="code"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="number" name="code" id="code"
+                               oninput="if(value.length>6)value=value.slice(0,6)" AUTOCOMPLETE="off"
+                               placeholder="请输入验证码"/>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <button class="weui-vcode-btn vcode">获取验证码</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-flex">
+        <div class="weui-flex__item">
+            <div class="weui-btn-area">
+                <a href="javascript:" class="weui-btn weui-btn_primary" id="registerBtn"><i id="registerLoading"></i>快速注册</a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="weui-flex">
+        <div class="weui-flex__item" id="login">
+            <a href="/login">已有账号？</a>
+        </div>
+        <div class="weui-flex__item" id="merchantRegister">
+            <a href="/merchantRegister">商家注册</a>
+        </div>
+    </div>
+    <!-- 以下代码仅用于测试 -->
+    <!-- 测试代码结束 -->
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/register.js"></script>
+</body>
+
+</html>

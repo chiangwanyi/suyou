@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/cms/animate.css">
+    <link rel="stylesheet" href="/public/css/cms/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/cms/style.css">
+    <link rel="stylesheet" href="/public/css/cms/theme.css">
+    <title>首页</title>
+</head>
+
+<body class="flat-blue">
+    <div class="sidebar">
+        <div class="menu-control toggle-sidebar">
+            <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 功能列表</a>
+            <i class="fa fa-bars navicon"></i>
+        </div>
+        <ul class="menu">
+            <li class="submenu">
+                <a href="/">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">数据概览</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="/cms/manage/restaurant" class="active">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">商家信息管理</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="table.html">
+                    <div>
+                        <i class="menu-icon fa fa-table"></i>
+                        <span class="menu-title">用户信息管理</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container wrap">
+        <nav class="navbar navbar-default">
+            <div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 酥游后台管理系统-管理员版</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa fa-comments"></i> 0</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    消息 ( <span>0</span> )
+                                </li>
+                                <li class="message">
+                                    <p>没有新消息</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown notification-alert">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa-exclamation-circle"></i> 3</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    待处理 ( <span>3</span> )
+                                </li>
+                                <li>
+                                    <ul class="notification-list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-alert">
+                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺负责人反馈</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-success">
+                                                    <i class="fa fa-check fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺注册信息</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-primary">
+                                                    <i class="fa fa-comments fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 系统通知</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                            <ul class="dropdown-menu user-info">
+                                <li class="dropdown-title-bar">
+                                    <img src="images/profile.jpg" class="profile-img">
+                                </li>
+                                <li>
+                                    <div class="navbar-login">
+                                        <h4 class="user-name">Emily Hart</h4>
+                                        <p>emily_hart@email.com</p>
+                                        <div class="btn-group margin-bottom-2x" role="group">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i>
+                                                详细
+                                            </button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i>
+                                                登出
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="page-title red">
+                        <h2>餐厅信息管理</h2>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">酥游</a>
+                        </li>
+                        <li><a href="#">餐厅信息管理</a>
+                        </li>
+                        <li class="active">添加新的餐厅</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="content-block">
+                        <div class="block-title">餐厅信息</div>
+                        <form class="form-vertical" id="restaurant">
+                            <div class="block-content">
+                                <span class="page-title">
+                                    <h4>基本信息</h4>
+                                </span>
+                                <div class="form-group">
+                                    <label for="name"><span style="color: red">*</span>餐厅名称</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="请输入餐厅名称"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"><span style="color: red">*</span>餐厅缩略图</label>
+                                    <!-- 上传图片 -->
+                                    <div class="weui-gallery" id="gallery">
+                                        <span class="weui-gallery__img" id="galleryImg"></span>
+                                        <div class="weui-gallery__opr">
+                                            <a href="javascript:" class="weui-gallery__del">
+                                                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="weui-uploader">
+                                        <div class="weui-uploader__bd">
+                                            <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                                            <div id="uploader-box" class="weui-uploader__input-box">
+                                                <input id="uploaderInput" class="weui-uploader__input" type="file"
+                                                    accept="image/*" multiple="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 上传图片结束 -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="ave_price"><span style="color: red">*</span>人均消费</label>
+                                    <input type="number" class="form-control" name="ave_price" id="ave_price"
+                                        placeholder="请输入餐厅人均消费" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tag"><span style="color: red">*</span>餐厅标签</label>
+                                    <div style="border-bottom: 1px solid #cccccc; padding: 2px;">
+                                        <h4>食物<a href="javascript:" class="addTag btn btn-success" style="margin: 0 0 0 5px;">添加标签</a></h4>
+                                        <div id="food_tag">
+                                            {{each food_tag}}
+                                            <a href="javascript:" class="tag btn btn-default">{{$value.name}}</a>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                    <div style="border-bottom: 1px solid #cccccc; padding: 2px;">
+                                        <h4>菜系</h4>
+                                        <a href="javascript:" class="tag btn btn-default">鲁菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">粤菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">川菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">苏菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">闽菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">浙菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">湘菜</a>
+                                        <a href="javascript:" class="tag btn btn-default">徽菜</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brief_position"><span style="color: red">*</span>餐厅简略位置</label>
+                                    <input type="text" class="form-control" name="brief_position" id="brief_position"
+                                        placeholder="请输入餐厅简略位置" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address"><span style="color: red">*</span>餐厅详细位置</label><br>
+                                    <select class="form-control" name="city" id="city"
+                                        style="display: inline-block; width: 10%;">
+                                        <option value="重庆市">重庆市</option>
+                                        <option value="芜湖市" selected>芜湖市</option>
+                                    </select><input type="text" class="form-control"
+                                        style="display: inline-block;width: 89%;margin-left: 1%;" name="address"
+                                        id="address" placeholder="请输入餐厅详细位置" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="coordinate"><span style="color: red">*</span>餐厅位置坐标</label>
+                                    <a id="map" href="javascript:" class="btn btn-xs btn-success"
+                                        style="margin: 0 0 0 5px;">打开地图选点页面</a>
+                                    <input type="text" class="form-control" name="coordinate" id="coordinate"
+                                        placeholder="复制拾取的坐标点数据" required>
+                                    <iframe id="baidu_map" class="hidden"
+                                        src="http://api.map.baidu.com/lbsapi/getpoint/index.html" width="100%"
+                                        height="800px" scrolling="yes"
+                                        style="margin: 10px 0 0 0;border: 1px solid #cccccc"></iframe>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel"><span style="color: red">*</span>餐厅联系电话</label>
+                                    <input type="text" class="form-control" name="tel" id="tel" placeholder="餐厅联系电话"
+                                        required>
+                                </div>
+                                <hr>
+                                <span class="page-title">
+                                    <h4>基本筛选信息</h4>
+                                </span>
+                                <div class="form-group">
+                                    <label for="business_time"><span style="color: red">*</span>餐厅营业时间</label>
+                                    <input type="text" class="form-control" name="business_time" id="business_time"
+                                        placeholder="例如：9.00-16.00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service_type"><span style="color: red">*</span>餐厅用餐时间服务类别</label>
+                                    <select name="service_type" id="service_type" class="form-control"
+                                        style="width: 10%;">
+                                        <option value="0">免预约</option>
+                                        <option value="1">可预约</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="basic_taste"><span style="color: red">*</span>餐厅食物基本口味</label>
+                                    <select name="basic_taste" id="basic_taste" class="form-control"
+                                        style="width: 10%;">
+                                        <option value="0">清淡</option>
+                                        <option value="1">非清淡</option>
+                                        <option value="2" selected>均有</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="onop"><span style="color: red">*</span>最佳用餐人数</label>
+                                    <select name="onop" id="onop" class="form-control" style="width: 10%;">
+                                        <option value="0">单人</option>
+                                        <option value="1">多人</option>
+                                        <option value="2" selected>均可</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="block-footer">
+                                <div class="form-group">
+                                    <button type="submit" id="submit" class="btn btn-primary">提交</button>
+                                    <button type="reset" class="btn btn-default">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script>
+        var map = $('#map')
+        var imap = $("#baidu_map")
+        var tag = $(".tag")
+
+        map.click(function () {
+            if (!imap.hasClass('hidden')) {
+                imap.addClass('hidden')
+                map[0].innerText = '打开地图选点页面'
+            } else {
+                imap.removeClass('hidden')
+                map[0].innerText = '关闭地图选点页面'
+            }
+        })
+
+        tag.click(function () {
+            console.log('pass')
+            $(".tag").removeClass("btn-primary")
+            $(".tag").addClass("btn-default")
+            $(this).removeClass("btn-default")
+            $(this).addClass("btn-primary")
+        })
+
+        $(".addTag").click(function () {
+            var name = prompt("请输入标签名：")
+            var tmp = `<a href="javascript:" class="tag btn btn-default">#name#</a>`
+            if (name != null && name != '') {
+                $.ajax({
+                    url: '/cms/manage/restaurant/addTag',
+                    type: 'post',
+                    data: {
+                        name: name
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code === 0) {
+                            $("#food_tag").append(tmp.replace("#name#", name))
+                            tag = $(".tag")
+                        } else {
+                            alert('该标签已存在')
+                        }
+                    }
+                })
+            }
+        })
+
+        var fd = new FormData()
+
+        $("#restaurant").submit(function (e) {
+            e.preventDefault()
+            if ($(".tag").hasClass('btn-primary') && fd.get('image') != null) {
+                var data = $(this).serializeArray()
+                console.log(data)
+                data.forEach(el => {
+                    fd.set(el.name, el.value)
+                })
+                fd.set('tag', $("a[class='tag btn btn-primary']")[0].innerText)
+                $.ajax({
+                    url: '/cms/manage/restaurant/add',
+                    type: 'post',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data.code === 0) {
+                            var flag = window.confirm('添加成功！是否继续添加餐厅？')
+                            if (flag == true) {
+                                window.location.href = '/cms/manage/restaurant/add'
+                            } else {
+                                window.location.href = '/cms/manage/restaurant'
+                            }
+                        }
+                    },
+                })
+            } else {
+                window.alert('请完善信息')
+            }
+        })
+
+        $(function () {
+            var tmpl = '<li id="image" class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+                $gallery = $("#gallery"),
+                $galleryImg = $("#galleryImg"),
+                $uploaderInput = $("#uploaderInput"),
+                $uploaderFiles = $("#uploaderFiles")
+            $uploaderInput.on("change", function (e) {
+                var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+                for (var i = 0, len = files.length; i < len; ++i) {
+                    var file = files[i];
+                    if (file.size > 3 * 1024 * 1024) {
+                        window.alert('上传的图片大小不能超过10M');
+                        return;
+                    }
+                    if (url) {
+                        src = url.createObjectURL(file);
+                        fd.set('image', file)
+                        console.log(fd)
+                    } else {
+                        src = e.target.result;
+                    }
+                    $uploaderFiles.append($(tmpl.replace('#url#', src)));
+                    $('.weui-uploader__input-box')[0].style.display = "none"
+                }
+            });
+
+            $uploaderFiles.on("click", "li", function () {
+                var flag = window.confirm('确定删除该图片？')
+                if (flag === true) {
+                    console.log('yes')
+                    $('#image').remove()
+                    $('.weui-uploader__input-box')[0].style.display = ""
+                    $uploaderInput[0].value = ''
+                    fd.set('image', null)
+                } else {
+                    console.log('no')
+                }
+            });
+
+            $('.weui-gallery__del').click(function () {
+                $.confirm('确定删除该图片？', function () {
+                    $('#image').remove()
+                    $('.weui-uploader__input-box')[0].style.display = ""
+                    $images_num[0].innerText = parseInt($images_num[0].innerText) - 1
+                    $uploaderInput[0].value = ''
+                    fd.set('image', null)
+                }, function () {
+                    return
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>

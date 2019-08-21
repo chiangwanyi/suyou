@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>社区</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/community.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-tab">
+        <div class="weui-tab__bd content-padded">
+            <div class="topTitle">
+                <a class="active" href="javascript:">说吧</a>
+                <a href="find">发现</a>
+            </div>
+            <div id="community" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div class="space"></div>
+                <a class="post" href="{{if user}}/post{{else}}/login{{/if}}"><img src="/public/icon/post.png"
+                        alt="" /></a>
+                <div class="weui-gallery" id="gallery" style="display: none;">
+                    <span class="weui-gallery__img" id="galleryImg" style="background-image:url('')"></span>
+                </div>
+                {{each notes}}
+                <a href="/community/comment?note_id={{$value._id}}">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item container">
+                            <div class="user">
+                                <img src="{{$value.user.avatar}}">
+
+                                <p>{{$value.user.nickname}}</p>
+                            </div>
+                            <p class="userNote">{{$value.text}}</p>
+                            <a href="javascript:">
+                                {{if $value.image}}
+                                <div class="uesrImage"><img class="showImg" src="{{$value.image}}"></div>
+                                {{/if}}
+                            </a>
+                            <!-- <div class="tag-list">
+                                <a href="javascript:" class="tag">休闲吧</a>
+                                <a href="javascript:" class="tag">休闲吧</a>
+                                <a href="javascript:" class="tag">休闲吧</a>
+                            </div> -->
+                            <div class="weui-flex icon-list">
+                                <a href="javascript:" class="weui-flex__item open-popup" data-target="#half">
+                                    <span></span><img src="/public/icon/share.png" alt="" />
+
+                                    <p class="title" style="height: 2em;line-height: 2.5em;font-size: 1.2em">分享</p>
+                                </a>
+                                <a href="/community/comment?note_id={{$value._id}}" class="weui-flex__item"
+                                    style="text-align: center">
+                                    <span></span><img src="/public/icon/contents.png" alt="" />
+
+                                    <p class="number">{{$value.comment_number}}</p>
+                                </a>
+                                <a id="{{$value._id}}" href="{{if user}}javascript:{{else}}/login{{/if}}"
+                                    class="weui-flex__item like" style="text-align: right">
+                                    <span></span><img
+                                        src="{{if $value.like}}/public/icon/like-on.png{{else}}/public/icon/like.png{{/if}}"
+                                        alt="" />
+
+                                    <p class="number">{{$value.like_number}}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+
+                <div id="half" class="weui-popup__container popup-bottom" style="display: none;">
+                    <div class="weui-popup__overlay"></div>
+                    <div class="weui-popup__modal">
+                        <div class="toolbar">
+                            <div class="toolbar-inner">
+                                <span class="platform">分享到微信等外部平台让更多朋友看到</span>
+                            </div>
+                        </div>
+                        <div class="modal-content">
+                            <div class="weui-grids">
+                                <a href="javascript:" class="weui-grid js_grid" data-id="dialog">
+                                    <div class="weui-grid__icon">
+                                        <img src="/public/images/community/weChat.png" alt="">
+                                    </div>
+                                    <p class="weui-grid__label">
+                                        微信好友
+                                    </p>
+                                </a>
+                                <a href="javascript:" class="weui-grid js_grid" data-id="progress">
+                                    <div class="weui-grid__icon">
+                                        <img src="/public/images/community/weSpace.png" alt="">
+                                    </div>
+                                    <p class="weui-grid__label">
+                                        朋友圈
+                                    </p>
+                                </a>
+                                <a href="javascript:" class="weui-grid js_grid" data-id="msg" onclick="qqFriend()">
+                                    <div class="weui-grid__icon">
+                                        <img src="/public/images/community/qqFriends.png" alt="">
+                                    </div>
+                                    <p class="weui-grid__label">
+                                        QQ好友
+                                    </p>
+                                </a>
+                                <a href="javascript:" class="weui-grid js_grid" data-id="dialog">
+                                    <div class="weui-grid__icon">
+                                        <img src="/public/images/community/qqSpace.png" alt="" onclick="qqZone()">
+                                    </div>
+                                    <p class="weui-grid__label">
+                                        QQ空间
+                                    </p>
+                                </a>
+                                <a href="javascript:" class="weui-grid js_grid" data-id="progress"
+                                    onclick="sinaWeiBo()">
+                                    <div class="weui-grid__icon">
+                                        <img src="/public/images/community/blog.png" alt="">
+                                    </div>
+                                    <p class="weui-grid__label">
+                                        新浪微博
+                                    </p>
+                                </a>
+                                <a href="javascript:" class="weui-grid js_grid" data-id="msg">
+                                    <div class="weui-grid__icon">
+                                        <img src="/public/images/community/more.png" alt="">
+                                    </div>
+                                    <p class="weui-grid__label">
+                                        更多
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="page-bottom">---到底了---</span>
+            </div>
+        </div>
+        <div id="tabbar" class="weui-tabbar content-bottom">
+            <a href="javascript:window.location.reload()" class="weui-tabbar__item weui-bar__item--on">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/community.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">圈子</p>
+            </a>
+            <a href="/" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/home.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">主页</p>
+            </a>
+            <a href="/me" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/images/home/me.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">我</p>
+            </a>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script type="text/javascript">
+        $('.showImg').click(function () {
+            console.log($(this).attr('src'))
+            var $gallery = $("#gallery")
+            var $galleryImg = $("#galleryImg")
+            $galleryImg.css('background-image', "url(" + $(this).attr('src') + ")")
+            $gallery.fadeIn(100)
+        })
+
+        $('#gallery').click(function () {
+            $(this).fadeOut(100);
+        })
+    </script>
+    {{if user}}
+    <script src="/public/js/community.js"></script>
+    {{/if}}
+</body>
+
+</html>

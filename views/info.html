@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fdb82d">
+    <title>用户</title>
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/suyou.css">
+    <link rel="stylesheet" href="/public/css/info.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-flex info-top">
+        <div class="weui-flex__item">
+            <div class="content back">
+                <a href="javascript:history.back();"><img src="/public/icon/back.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <p>个人信息</p>
+            </div>
+        </div>
+        <div class="weui-flex__item">
+            <div class="content">
+                <a id="submit" href="javascript:" style="color: #F3843F">提交修改</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-cells info">
+        <div class="upload">
+            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+            <a class="weui-cell weui-cell_access" href="javascript:">
+                <div class="weui-cell__hd">头像</div>
+                <div class="weui-cell__bd">
+                    <img id="avatar" class="avatar" src="{{user.avatar}}" alt="">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </a>
+        </div>
+        <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__hd">
+                <p>UID</p>
+            </div>
+            <div class="weui-cell__bd">
+                <p>{{user._id}}</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__hd">
+                <p>手机号</p>
+            </div>
+            <div class="weui-cell__bd">
+                <p>{{user.tel}}</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__hd">
+                <p>昵称</p>
+            </div>
+            <div class="weui-cell__bd">
+                <input id="nickname" class="weui-input input" type="text" value="{{user.nickname}}" maxlength="8" placeholder="请输入昵称">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd">
+                <p>性别</p>
+            </div>
+            <div class="weui-cell__bd gender">
+                <select id="gender" class="weui-select" name="select1">
+                    <option {{if user.gender == 0}}selected="" {{/if}} value="0">男</option>
+                    <option {{if user.gender == 1}}selected="" {{/if}} value="1">女</option>
+                    <option {{if user.gender == -1}}selected="" {{/if}} value="-1">保密</option>
+                </select>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/jquery-weui-build/lib/fastclick.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/info.js"></script>
+</body>
+
+</html>

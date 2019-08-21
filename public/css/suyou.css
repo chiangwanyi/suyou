@@ -1,0 +1,102 @@
+body, html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.content-padded {
+    /*padding: 15px;*/
+}
+
+.content-bottom {
+    z-index: 9;
+}
+
+.page-bottom {
+    display: block;
+    color: #cccccc;
+    height: 10%;
+    text-align: center;
+}
+
+.suyou-title {
+    text-align: center;
+    font-size: 34px;
+    color: #3cc51f;
+    font-weight: 400;
+    margin: 0 15%;
+}
+
+.topTitle {
+    font-size: 1.5em;
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    border-radius: 0.2em;
+    line-height: 30px;
+    padding: 1em 0 1em 0;
+}
+
+.topTitle a {
+    margin-left: 0.7em;
+    text-decoration: none;
+    color: rgba(86, 86, 86, 0.82);
+    font-weight: bold;
+}
+
+.topTitle .active {
+    font-size: 1.3em;
+    color: black;
+    border-bottom: 2px solid orangered;
+    transition: 0.5s;
+}
+
+.space {
+    width: 100%;
+    height: 6em;
+}
+
+.item-top {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #cccccc;
+}
+
+.content {
+    margin: 0.5em;
+    text-align: center;
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+.back {
+    text-align: left
+}
+
+.back a img {
+    width: 2em;
+    height: 2em;
+}
+
+.more {
+    text-align: left
+}
+
+.more a img {
+    width: 2em;
+    height: 2em;
+}
+
+.home {
+    text-align: right
+}
+
+.home a img {
+    width: 2em;
+    height: 2em;
+}
+
+.text-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/cms/animate.css">
+    <link rel="stylesheet" href="/public/css/cms/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/lib/weui.min.css">
+    <link rel="stylesheet" href="/public/jquery-weui-build/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="/public/css/cms/style.css">
+    <link rel="stylesheet" href="/public/css/cms/theme.css">
+    <title>首页</title>
+</head>
+
+<body class="flat-blue">
+    <div class="sidebar">
+        <div class="menu-control toggle-sidebar">
+            <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 功能列表</a>
+            <i class="fa fa-bars navicon"></i>
+        </div>
+        <ul class="menu">
+            <li class="submenu">
+                <a href="/">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">数据概览</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="/manage/restaurant" class="active">
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">商家信息管理</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="table.html">
+                    <div>
+                        <i class="menu-icon fa fa-table"></i>
+                        <span class="menu-title">用户信息管理</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container wrap">
+        <nav class="navbar navbar-default">
+            <div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> 酥游后台管理系统-管理员版</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa fa-comments"></i> 0</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    消息 ( <span>0</span> )
+                                </li>
+                                <li class="message">
+                                    <p>没有新消息</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown notification-alert">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false"><i class="fa fa-exclamation-circle"></i> 3</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    待处理 ( <span>3</span> )
+                                </li>
+                                <li>
+                                    <ul class="notification-list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-alert">
+                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺负责人反馈</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-success">
+                                                    <i class="fa fa-check fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 店铺注册信息</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-primary">
+                                                    <i class="fa fa-comments fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message"><span>1</span> 条 系统通知</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                            <ul class="dropdown-menu user-info">
+                                <li class="dropdown-title-bar">
+                                    <img src="images/profile.jpg" class="profile-img">
+                                </li>
+                                <li>
+                                    <div class="navbar-login">
+                                        <h4 class="user-name">Emily Hart</h4>
+                                        <p>emily_hart@email.com</p>
+                                        <div class="btn-group margin-bottom-2x" role="group">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i>
+                                                详细
+                                            </button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i>
+                                                登出
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="page-title red">
+                        <h2>餐厅信息管理</h2>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">酥游</a>
+                        </li>
+                        <li><a href="#">餐厅信息管理</a>
+                        </li>
+                        <li><a href="#" id="restaurant_name"></a>
+                        </li>
+                        <li class="active">添加商品</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="content-block">
+                        <div class="block-title">商品信息</div>
+                        <form class="form-vertical" id="goods" method="POST">
+                            <div class="block-content">
+                                <span class="page-title">
+                                    <h4>基本信息</h4>
+                                </span>
+                                <div class="form-group">
+                                    <label for="goods_type"><span style="color: red">*</span>商品类型</label>
+                                    <select class="form-control" name="goods_type" id="goods_type" style="width: 10%;">
+                                        <option value="0">菜品</option>
+                                        <option value="1">代金券</option>
+                                    </select>
+                                </div>
+                                <div class="form-group food">
+                                    <label for="name"><span style="color: red">*</span>商品名称</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="请输入商品名称"
+                                        required>
+                                </div>
+                                <div class="form-group food">
+                                    <label for="name"><span style="color: red">*</span>商品缩略图</label>
+                                    <!-- 上传图片 -->
+                                    <div class="weui-gallery" id="gallery">
+                                        <span class="weui-gallery__img" id="galleryImg"></span>
+                                        <div class="weui-gallery__opr">
+                                            <a href="javascript:" class="weui-gallery__del">
+                                                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="weui-uploader">
+                                        <div class="weui-uploader__bd">
+                                            <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                                            <div id="uploader-box" class="weui-uploader__input-box">
+                                                <input id="uploaderInput" class="weui-uploader__input" type="file"
+                                                    accept="image/*" multiple="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 上传图片结束 -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="price"><span style="color: red">*</span>商品价格</label>
+                                    <input type="number" class="form-control" name="price" id="price"
+                                        placeholder="请输入价格" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="discount"><span style="color: red">*</span>商品折扣</label>
+                                    <input type="number" class="form-control" name="discount" id="discount"
+                                        placeholder="请输入折扣，如：95（表示95折）" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile"><span style="color: red">*</span>商品简介</label>
+                                    <input type="text" class="form-control" name="profile" id="profile"
+                                        placeholder="请输入商品简介" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="available_date"><span style="color: red">*</span>可用日期</label>
+                                    <input type="text" class="form-control" name="available_date" id="available_date"
+                                        placeholder="请输入可用日期，如：1-7（表示周一到周日可用）" required>
+                                </div>
+                                <hr>
+                                <div class="food">
+                                    <span class="page-title">
+                                        <h4>菜品信息（列表）</h4>
+                                    </span>
+                                    <div style="border: 2px solid #4e4e4e; margin: 5px 0 20px 0;">
+                                        <div class="form-group">
+                                            <label for="food_detail_title"><span
+                                                    style="color: red">*</span>菜品信息标题</label>
+                                            <input type="text" class="form-control" name="food_detail_title"
+                                                id="food_detail_title" placeholder="如：主食" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="food_detail_list_content"><span
+                                                    style="color: red">*</span>菜品内容</label>
+                                            <textarea style="resize:vertical;" rows="5" type="text" class="form-control"
+                                                name="food_detail_list_content" id="food_detail_list_content"
+                                                placeholder="如：重庆排骨（大）" required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="food_detail_list_number"><span
+                                                    style="color: red">*</span>菜品份数</label>
+                                            <input type="text" class="form-control" name="food_detail_list_number"
+                                                id="food_detail_list_number" placeholder="请输入份数" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="food_detail_list_price"><span
+                                                    style="color: red">*</span>菜品价格</label>
+                                            <input type="text" class="form-control" name="food_detail_list_price"
+                                                id="food_detail_list_price" placeholder="请输入价格" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="page-title">
+                                    <h4>温馨提示（列表）</h4>
+                                </span>
+                                <div style="border: 2px solid #4e4e4e; margin: 5px 0 20px 0;">
+                                    <div class="form-group">
+                                        <label for="hint_title"><span style="color: red">*</span>温馨提示标题</label>
+                                        <input type="text" class="form-control" name="hint_title" id="hint_title"
+                                            placeholder="如：有效期" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hint_list"><span style="color: red">*</span>温馨提示内容</label>
+                                        <textarea style="resize:vertical;" rows="5" type="text" class="form-control"
+                                            name="hint_list" id="hint_list"
+                                            placeholder="如：2016.10.9至2019.7.27 23:59 (周末、法定节假日通用)" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-footer">
+                                <div class="form-group">
+                                    <button type="submit" id="submit" class="btn btn-primary">提交</button>
+                                    <button type="reset" class="btn btn-default">重置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/public/jquery-weui-build/lib/jquery-2.1.4.min.js"></script>
+    <script src="/public/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/public/jquery-weui-build/js/jquery-weui.min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script>
+        var tag = $(".tag")
+
+        function getvl(name) {
+            var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)", "i");
+            if (reg.test(decodeURI(window.location.href)))
+                return unescape(RegExp.$2.replace(/\+/g, " "));
+            return "";
+        };
+
+        tag.click(function () {
+            console.log('pass')
+            $(".tag").removeClass("btn-primary")
+            $(".tag").addClass("btn-default")
+            $(this).removeClass("btn-default")
+            $(this).addClass("btn-primary")
+        })
+
+        $("#goods_type").change(function () {
+            var selected = $(this).val()
+            if (selected == 1) {
+                $("div.food").attr('style', 'display:none')
+                $("#profile").val("部分商品可用|不限张数")
+            } else {
+                $("div.food").attr('style', 'display:block')
+                $("#profile").val('')
+            }
+        })
+
+        $("#submit").click(function () {
+            var selected = $("#goods_type").val()
+            if (selected == 1) {
+                console.log('pass')
+                var data = $("#goods").serializeArray()
+                console.log(data)
+            }
+        })
+
+        $("#goods").submit(function (e) {
+            e.preventDefault()
+            var data = $(this).serializeArray()
+            console.log(data)
+            data.forEach(el => {
+                fd.set(el.name, el.value)
+            })
+            fd.set('id', getvl('id').split('?')[0])
+            $.ajax({
+                url: '/cms/manage/restaurant/add_goods',
+                type: 'post',
+                data: fd,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data.code == 0) {
+                        var flag = window.confirm('添加成功！是否继续添加？')
+                            if (flag == true) {
+                                return
+                            } else {
+                                window.location.href = '/manage/restaurant'
+                            }
+                    } else if (data.code == -1) {
+                        alert(data.msg)
+                    }
+                }
+            })
+        })
+
+        var fd = new FormData()
+
+        $(function () {
+            var tmpl = '<li id="image" class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+                $gallery = $("#gallery"),
+                $galleryImg = $("#galleryImg"),
+                $uploaderInput = $("#uploaderInput"),
+                $uploaderFiles = $("#uploaderFiles")
+
+            $("#restaurant_name")[0].innerText = getvl('name')
+
+            $uploaderInput.on("change", function (e) {
+                var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+                for (var i = 0, len = files.length; i < len; ++i) {
+                    var file = files[i];
+                    if (file.size > 3 * 1024 * 1024) {
+                        window.alert('上传的图片大小不能超过10M');
+                        return;
+                    }
+                    if (url) {
+                        src = url.createObjectURL(file);
+                        fd.set('image', file)
+                        console.log(fd)
+                    } else {
+                        src = e.target.result;
+                    }
+                    $uploaderFiles.append($(tmpl.replace('#url#', src)));
+                    $('.weui-uploader__input-box')[0].style.display = "none"
+                }
+            });
+
+            $uploaderFiles.on("click", "li", function () {
+                var flag = window.confirm('确定删除该图片？')
+                if (flag === true) {
+                    console.log('yes')
+                    $('#image').remove()
+                    $('.weui-uploader__input-box')[0].style.display = ""
+                    $uploaderInput[0].value = ''
+                    fd.set('image', null)
+                } else {
+                    console.log('no')
+                }
+            });
+
+            $('.weui-gallery__del').click(function () {
+                $.confirm('确定删除该图片？', function () {
+                    $('#image').remove()
+                    $('.weui-uploader__input-box')[0].style.display = ""
+                    $images_num[0].innerText = parseInt($images_num[0].innerText) - 1
+                    $uploaderInput[0].value = ''
+                    fd.set('image', null)
+                }, function () {
+                    return
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>

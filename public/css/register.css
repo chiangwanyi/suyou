@@ -1,0 +1,90 @@
+.bg {
+    background-image: url("/public/images/login/bg-img.jpg");
+    background-size: 100% 100%;
+}
+
+.main-color {
+    background-color: rgba(17, 0, 35, 0.31);
+    height: 100%;
+}
+
+.register-title {
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.registerType {
+
+}
+
+.registerType img {
+    width: 30%;
+}
+
+#toHome {
+    text-align: right;
+}
+
+#toHome img {
+    width: 20%;
+    height: 20%;
+}
+
+.register-panel {
+    text-align: center;
+}
+
+.input-bg:before {
+    border-top: none;
+}
+
+.input-bg {
+    width: 80%;
+    border: none;
+    border-radius: 30px;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    background-color: rgba(155, 155, 155, 0.71);
+    /*padding: 10px;*/
+}
+
+.input-bg:after {
+    border-bottom: none;
+}
+
+
+.tel-icon, .pwd-icon, .user-icon, .code-icon {
+    width: 35%;
+    height: 35%;
+}
+
+input::-webkit-input-placeholder {
+    color: #cacaca;
+    font-size: 15px;
+}
+
+.vcode {
+    height: 28px;
+    line-height: 28px;
+}
+
+#registerBtn {
+    width: 85%;
+    border-radius: 30px;
+    background-color: rgba(160, 69, 98, 1.00);
+}
+
+#login {
+    padding-left: 15%;
+}
+
+#merchantRegister {
+    padding-right: 15%;
+    text-align: right;
+}
+
+#login a, #merchantRegister a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
